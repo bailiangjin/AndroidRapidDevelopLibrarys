@@ -5,17 +5,12 @@ android {
     compileSdkVersion 23
     buildToolsVersion '23.0.1'
 
-    dataBinding {
-        enabled true
-    }
 
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 2
         versionName "1.0.1.1"
-
-
     }
 
     lintOptions {
@@ -34,6 +29,18 @@ android {
         enabled = true
     }
 }
+
+
+
+dependencies {
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile files('libs/AJavaBaseLib.jar')
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile project(':android-ui-library')
+}
+
+
 
 ////dependsOn 可根据实际需要增加或更改
 //task buildJar(dependsOn: ['compileReleaseJava'], type: Jar) {
@@ -64,16 +71,6 @@ android {
 //
 //    //注: exclude include 支持可变长参数
 //}
-
-dependencies {
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    compile 'com.squareup.okhttp:okhttp:2.6.0'
-    compile files('libs/AJavaBaseLib.jar')
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile project(':android-ui-library')
-
-
-}
 
 ////添加
 //publish {
