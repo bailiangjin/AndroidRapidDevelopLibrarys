@@ -3,7 +3,39 @@
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
-.DS_Store
 /build
 /captures
 .externalNativeBuild
+
+#Gradle
+.gradle/
+build/
+captures/
+
+#mac
+.DS_Store
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Intellij project files
+*.ipr
+*.iws
+.idea/
+
+# Eclipse project files
+.classpath
+.project
+
+# generated files
+bin/
+gen/
+
+# Java class files
+*.class
+
+# files for the dex VM
+*.dex
+
+*.apk
+*.ap_
