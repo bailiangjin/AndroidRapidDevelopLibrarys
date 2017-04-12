@@ -70,7 +70,6 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.6.0'
     compile files('libs/AJavaBaseLib.jar')
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile project(':android-ui-library')
 
 
 }
