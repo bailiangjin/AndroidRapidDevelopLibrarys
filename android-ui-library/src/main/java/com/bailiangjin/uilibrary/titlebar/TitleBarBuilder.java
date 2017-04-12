@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class TitleBarBuilder {
 
-    private static final int defaultBgResId = R.drawable.bg_title_bar;
+    private static final int defaultBgResId = R.drawable.title_gradient_bg;
     private static final int defaultBackIconResId = R.drawable.icon_back;
 
     Map<String, MyMenuItem> itemLinkedHashMap = new LinkedHashMap<>();
