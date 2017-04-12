@@ -10,7 +10,7 @@ android {
         minSdkVersion 11
         targetSdkVersion 23
         versionCode 2
-        versionName "1.0.1.1"
+        versionName "1.0.0"
     }
 
     lintOptions {
@@ -24,6 +24,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+
 
     dataBinding {
         enabled = true
@@ -76,17 +78,17 @@ dependencies {
 //publish {
 //    userOrg = 'geekkevin'//bintray.com用户名
 //    groupId = 'com.geekkevin'//jcenter上的路径
-//    artifactId = 'baselibrary'//项目名称
-//    publishVersion = '1.2.0'//版本号
-//    desc = 'android develop base library by geekkevin'//描述，不重要
-//    website = 'https://github.com/bailiangjin/BaseLibrary'//网站，不重要
+//    artifactId = 'android-utils-library'//项目名称
+//    publishVersion = '1.0.0'//版本号
+//    desc = 'android develop utils library by bailiangjin'//描述，不重要
+//    website = 'https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library'//网站，不重要
 //    licences = ['Apache-2.0']
 //
-//    userOrg = rootProject.userOrg
-//    groupId = rootProject.groupId
-//    artifactId = rootProject.artifactId
-//    publishVersion = rootProject.publishVersion
-//    desc = rootProject.description
-//    website = rootProject.website
-//    licences = rootProject.licences
+////    userOrg = rootProject.userOrg
+////    groupId = rootProject.groupId
+////    artifactId = rootProject.artifactId
+////    publishVersion = rootProject.publishVersion
+////    desc = rootProject.description
+////    website = rootProject.website
+////    licences = rootProject.licences
 //}
