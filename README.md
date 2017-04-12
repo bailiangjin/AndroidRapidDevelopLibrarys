@@ -1,10 +1,14 @@
 # AndroidRapidDevelopLibrarys
 # Android快速开发资源库
 
+本工程是在开发过程中抽取封装出的与业务逻辑无关的基础资源工具类，可直接引用。
+目的：减少低层次代码书写量，真正实现业务逻辑和与业务逻辑无关代码的分离。
 
 ## android-ui-library
 
 Android UI 资源库
+
+代码位置：[android-ui-library](https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-ui-library)
 
 
 封装了与业务无关的BaseActivity、BaseFragment、RecyclerView 的Adapter
@@ -25,10 +29,12 @@ compile 'com.geekkevin:android-ui-library:1.0.0'
 
 Android 工具类 资源库
 
+代码位置：[android-ui-library](https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library)
 
 
 具体包括：常用工具类app、device、file、html、ui 几种列表的工具类
-具体请参考工程代码[工具类目录](https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library/src/main/java/com/bailiangjin/utilslibrary/utils)
+
+具体请参考工程代码[工具类代码目录](https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library/src/main/java/com/bailiangjin/utilslibrary/utils)
 等
 
 
@@ -40,9 +46,15 @@ compile 'com.geekkevin:android-utils-library:1.0.0'
 
 
 
-本工程是在开发过程中抽取出的与业务逻辑无关的基础资源类，可直接引用。
-目的：减少低层次代码书写量，真正实现业务逻辑和与业务逻辑无关代码的分离。
+本工程暂未添加详细的使用说明demo，可参考引用当前库的两个ithHub项目：
 
+[基础资源库使用示例（BaseLibrary）](https://github.com/bailiangjin/BaseLibrary)
+
+[简信（SimpleIM）](https://github.com/bailiangjin/SimpleIM)
+
+这两个项目均用 git submodule的方式引用了AndroidRapidDevelopLibrarys 工程
+
+后续会添加具体的使用说明，敬请期待。
 
 ## 感谢
 
