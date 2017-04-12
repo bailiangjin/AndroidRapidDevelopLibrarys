@@ -1,13 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
 
     defaultConfig {
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -15,15 +16,38 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+
 }
 
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(':baseadapter-recyclerview')
     compile 'com.android.support:support-v4:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'io.reactivex:rxjava:1.1.0'
+    compile project(':baseadapter-recyclerview')
+
+}
+
+
+publish {
+    userOrg = 'geekkevin'//bintray.com用户名
+    groupId = 'com.geekkevin'//jcenter上的路径
+    artifactId = 'android-ui-library'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'android develop ui library by bailiangjin'//描述，不重要
+    website = 'https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library'//网站，不重要
+    licences = ['Apache-2.0']
 
 }

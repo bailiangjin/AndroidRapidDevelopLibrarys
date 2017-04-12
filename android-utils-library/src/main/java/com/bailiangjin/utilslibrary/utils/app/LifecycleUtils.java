@@ -78,7 +78,6 @@ public class LifecycleUtils {
     /**
      * 将当前activity 所属task切到后台
      *
-     * @return
      */
     public static void moveTaskToBack(Activity activity) {
         activity.moveTaskToBack(true);
