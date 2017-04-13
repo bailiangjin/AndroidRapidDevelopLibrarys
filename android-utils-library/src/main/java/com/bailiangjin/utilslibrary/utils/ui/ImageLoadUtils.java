@@ -50,9 +50,9 @@ public enum ImageLoadUtils {
      */
     private ImageLoadUtils() {
         //初始化 全局默认图片
-        onLoadingImageResId = R.drawable.icon_back;
-        onEmptyImageResId = R.drawable.icon_back;
-        onFailedImageResId = R.drawable.icon_back;
+        onLoadingImageResId = R.drawable.icon_image_load_utils_default;
+        onEmptyImageResId = R.drawable.icon_image_load_utils_default;
+        onFailedImageResId = R.drawable.icon_image_load_utils_default;
 
         simpleBitmapDisplayer = new SimpleBitmapDisplayer();
         normalOptions = getOption(onLoadingImageResId, onEmptyImageResId, onFailedImageResId, simpleBitmapDisplayer);
