@@ -10,8 +10,8 @@ import android.util.Log;
 
 import com.bailiangjin.utilslibrary.api.UtilsLibrary;
 import com.bailiangjin.utilslibrary.utils.app.AppUtils;
-import com.bailiangjin.utilslibrary.enums.NetworkTypeEnum;
-import com.bailiangjin.utilslibrary.enums.ProviderTypeEnum;
+import com.bailiangjin.utilslibrary.constant.enums.NetworkTypeEnum;
+import com.bailiangjin.utilslibrary.constant.enums.ProviderTypeEnum;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
 
 import java.lang.reflect.Field;

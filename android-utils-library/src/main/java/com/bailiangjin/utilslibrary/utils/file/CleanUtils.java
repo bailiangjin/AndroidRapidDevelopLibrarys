@@ -2,8 +2,7 @@ package com.bailiangjin.utilslibrary.utils.file;
 
 
 import com.bailiangjin.utilslibrary.utils.app.AppUtils;
-import com.bailiangjin.utilslibrary.config.CleanOptions;
-import com.bailiangjin.utilslibrary.enums.SPKeyEnum;
+import com.bailiangjin.utilslibrary.constant.enums.SPKeyEnum;
 import com.bailiangjin.javabaselib.utils.FileUtils;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
 import com.bailiangjin.utilslibrary.utils.SPUtils;

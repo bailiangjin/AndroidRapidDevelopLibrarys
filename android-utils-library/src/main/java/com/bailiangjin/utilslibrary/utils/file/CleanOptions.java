@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.config;
+package com.bailiangjin.utilslibrary.utils.file;
 
 /**
  * 清理 APP配置类 建造者模式范例

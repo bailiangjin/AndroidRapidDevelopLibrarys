@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.enums;
+package com.bailiangjin.utilslibrary.constant.enums;
 
 public enum SPKeyEnum {
     CURRENT_VIDEO_FILE_PATH("CURRENT_VIDEO_FILE_PATH"),

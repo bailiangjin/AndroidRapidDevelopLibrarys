@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.enums;
+package com.bailiangjin.utilslibrary.constant.enums;
 
 public enum NetworkTypeEnum {
     UNKNOWN("UNKNOWN"),

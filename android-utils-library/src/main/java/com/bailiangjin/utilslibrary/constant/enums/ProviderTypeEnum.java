@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.enums;
+package com.bailiangjin.utilslibrary.constant.enums;
 
 public enum ProviderTypeEnum {
     UNKNOWN("UNKNOWN"),//未知
