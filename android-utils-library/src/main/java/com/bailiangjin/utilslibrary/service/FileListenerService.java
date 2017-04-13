@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
-import com.bailiangjin.utilslibrary.app.SuperBaseService;
 import com.bailiangjin.utilslibrary.interfaze.listener.IFileListener;
 import com.bailiangjin.utilslibrary.utils.file.MultiFileObserver;
 import com.bailiangjin.utilslibrary.utils.file.FilePathUtil;

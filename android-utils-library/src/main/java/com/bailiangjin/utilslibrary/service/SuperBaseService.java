@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.app;
+package com.bailiangjin.utilslibrary.service;
 
 import android.app.Service;
 import android.content.Intent;

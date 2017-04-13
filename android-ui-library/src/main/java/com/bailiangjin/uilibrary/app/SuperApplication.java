@@ -1,12 +1,11 @@
-package com.bailiangjin.utilslibrary.app;
+package com.bailiangjin.uilibrary.app;
 
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-
-import com.bailiangjin.utilslibrary.utils.LogUtils;
+import android.util.Log;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -54,7 +53,7 @@ public abstract class SuperApplication extends Application {
      */
     public void pushActivity(Activity activity) {
         mActivitys.add(activity);
-        LogUtils.d("activityList:size:"+mActivitys.size());
+        Log.d("SuperApplication","activityList:size:"+mActivitys.size());
     }
 
     /**
@@ -62,7 +61,7 @@ public abstract class SuperApplication extends Application {
      */
     public void popActivity(Activity activity) {
         mActivitys.remove(activity);
-        LogUtils.d("activityList:size:"+mActivitys.size());
+        Log.d("SuperApplication","activityList:size:"+mActivitys.size());
     }
 
 
@@ -185,7 +184,7 @@ public abstract class SuperApplication extends Application {
      */
     public void appExit() {
         try {
-            LogUtils.e("app exit");
+            Log.e("SuperApplication","app exit");
             finishAllActivity();
             onAppExit();
         } catch (Exception e) {

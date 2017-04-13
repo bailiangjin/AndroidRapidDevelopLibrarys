@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.config;
+package com.bailiangjin.utilslibrary.utils.file;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
