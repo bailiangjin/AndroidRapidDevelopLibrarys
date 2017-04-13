@@ -11,10 +11,10 @@ import com.bailiangjin.utilslibrary.utils.ui.ImageLoadUtils;
 
 public class UtilsLibrary {
 
-    public static ApiConfig apiConfig;
+    public static UtilsLibraryConfig utilsLibraryConfig;
 
     public static void init(Application application) {
-        apiConfig = new ApiConfig(application);
+        utilsLibraryConfig = new UtilsLibraryConfig(application);
         onInit(application);
     }
 
@@ -24,11 +24,11 @@ public class UtilsLibrary {
 
     public static Context getAppContext(){
         checkInit();
-        return apiConfig.getApplication().getApplicationContext();
+        return utilsLibraryConfig.getApplication().getApplicationContext();
     }
 
     private static void checkInit() {
-        if(null==apiConfig){
+        if(null== utilsLibraryConfig){
             throw new RuntimeException("please call UtilsLibrary.init() first");
         }
     }

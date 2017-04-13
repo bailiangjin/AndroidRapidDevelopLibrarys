@@ -6,12 +6,12 @@ import android.app.Application;
  * Created by bailiangjin on 2017/4/10.
  */
 
-public class ApiConfig {
+public class UtilsLibraryConfig {
 
     private Application application;
 
 
-    public ApiConfig(Application application) {
+    public UtilsLibraryConfig(Application application) {
         this.application = application;
     }
 
