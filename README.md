@@ -17,12 +17,12 @@ Android UI 资源库
 嗯 你连界面都不用写了直接继承PullToRefreshAndLoadMoreFragment，实现方法protected abstract T getListRvAdapter();
 返回你的Adapter就行了 其他逻辑都已经帮你封装了，下拉刷新、加载更多只需要在暴露给你的相应回调中进行你数据的更改即可
 
+### jcenter引用 android-ui-library
+
 android-ui-library 已经发布到jcenter
 
 jcenter 引用方式
 compile 'com.geekkevin:android-ui-library:1.0.0'
-
-
 
 
 ## android-utils-library
@@ -32,11 +32,12 @@ Android 工具类 资源库
 代码位置：[android-ui-library](https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library)
 
 
-具体包括：常用工具类app、device、file、html、ui 几种列表的工具类
+具体包括：常用工具类app、device、file、html、ui 几种类别的工具类
 
 具体请参考工程代码[工具类代码目录](https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library/src/main/java/com/bailiangjin/utilslibrary/utils)
 等
 
+### jcenter引用 android-utils-library
 
 android-utils-library 类库 已经 发布到jcenter
 
