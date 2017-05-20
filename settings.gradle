@@ -1,1 +1,1 @@
-include ':app', ':baseadapter-recyclerview', ':android-ui-library', ':android-utils-library'
+include ':app', ':baseadapter-recyclerview', ':android-ui-library', ':android-utils-library', ':android-datarequest-library'
