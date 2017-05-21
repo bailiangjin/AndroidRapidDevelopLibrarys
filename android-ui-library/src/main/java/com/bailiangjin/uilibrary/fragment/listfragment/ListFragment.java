@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
-import com.bailiangjin.uilibrary.recyclerview.adapter.HSItemDecoration;
+import com.bailiangjin.uilibrary.recyclerview.adapter.ItemDecoration;
 import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
 
 
@@ -59,16 +59,16 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
      *
      * @return
      */
-    private HSItemDecoration getItemDecoration() {
+    private ItemDecoration getItemDecoration() {
 
         if (getDividerLineWidth() >=0 && getDividerColorResId() > 0) {
-            return new HSItemDecoration(getActivity(), getDividerColorResId(), getDividerLineWidth());
+            return new ItemDecoration(getActivity(), getDividerColorResId(), getDividerLineWidth());
         } else if (getDividerLineWidth() >= 0) {
-            return new HSItemDecoration(getActivity(), getDividerLineWidth());
+            return new ItemDecoration(getActivity(), getDividerLineWidth());
         } else if (getDividerColorResId() > 0) {
-            return new HSItemDecoration(getActivity(), getDividerColorResId());
+            return new ItemDecoration(getActivity(), getDividerColorResId());
         } else {
-            return new HSItemDecoration(getActivity());
+            return new ItemDecoration(getActivity());
         }
     }
 
