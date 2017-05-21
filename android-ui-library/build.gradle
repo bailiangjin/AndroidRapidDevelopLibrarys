@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'//添加
+//apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -41,13 +41,13 @@ dependencies {
 }
 
 
-publish {
-    userOrg = 'geekkevin'//bintray.com用户名
-    groupId = 'com.geekkevin'//jcenter上的路径
-    artifactId = 'android-ui-library'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'android develop ui library by bailiangjin'//描述，不重要
-    website = 'https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library'//网站，不重要
-    licences = ['Apache-2.0']
-
-}
+//publish {
+//    userOrg = 'geekkevin'//bintray.com用户名
+//    groupId = 'com.geekkevin'//jcenter上的路径
+//    artifactId = 'android-ui-library'//项目名称
+//    publishVersion = '1.0.0'//版本号
+//    desc = 'android develop ui library by bailiangjin'//描述，不重要
+//    website = 'https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library'//网站，不重要
+//    licences = ['Apache-2.0']
+//
+//}
