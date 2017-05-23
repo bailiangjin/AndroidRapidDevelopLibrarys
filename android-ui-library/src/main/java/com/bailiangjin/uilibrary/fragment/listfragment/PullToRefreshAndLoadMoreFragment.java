@@ -40,7 +40,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
 
     @Override
     protected void initView() {
-        swipeRefreshLayout= (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
         super.initView();
     }
 
@@ -59,7 +59,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                     @Override
                     public void onNext(Boolean isSuccess) {
                         hideRefreshProgressBar();
-                        if(isSuccess){
+                        if (isSuccess) {
                             loadMoreWrapper.notifyDataSetChanged();
                         }
 
@@ -71,7 +71,6 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     }
 
 
-
     @Override
     protected void initLoadMore() {
         super.initLoadMore();
@@ -80,7 +79,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
             @Override
             public void onLoadMoreRequested() {
 
-                if(hasMoreData){
+                if (hasMoreData) {
                     //加载更多
                     loadMoreData(new CommonSubscribe<Boolean>() {
 
@@ -89,7 +88,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                             if (isSuccess) {
                                 loadMoreWrapper.notifyDataSetChanged();
                             } else {
-                                hasMoreData=false;
+                                hasMoreData = false;
                                 loadMoreWrapper.showNoMoreData();
                             }
                         }
@@ -98,7 +97,8 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
 
             }
         });
-        realAdapter=loadMoreWrapper;
+        realAdapter = loadMoreWrapper;
+        recyclerView.setAdapter(realAdapter);
     }
 
     @Override
@@ -123,9 +123,6 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     public abstract void initOrRefreshData(Subscriber<Boolean> subscriber);
 
     protected abstract void loadMoreData(Subscriber<Boolean> subscriber);
-
-
-
 
 
 }
