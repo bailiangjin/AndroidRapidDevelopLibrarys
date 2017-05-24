@@ -90,6 +90,10 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
         listRvAdapter = adapter;
     }
 
+    protected void setOverScrollMode(int overScrollMode){
+        recyclerView.setOverScrollMode(overScrollMode);
+    }
+
 
 
     protected void initRefresh() {
