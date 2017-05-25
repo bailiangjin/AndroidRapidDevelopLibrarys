@@ -17,16 +17,13 @@ import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
 public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends SuperBaseFragment {
 
 
-    RecyclerView recyclerView;
+    protected RecyclerView recyclerView;
 
     protected T listRvAdapter;
 
     protected RecyclerView.Adapter realAdapter;
 
     protected boolean isDecorationAdded = false;
-
-
-
 
 
     @Override
@@ -42,7 +39,7 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
 
     @Override
     protected void initView() {
-        recyclerView= (RecyclerView) rootView.findViewById(R.id.recyclerView);
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         if (!isDecorationAdded) {
             recyclerView.addItemDecoration(getItemDecoration());
@@ -61,7 +58,7 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
      */
     private ItemDecoration getItemDecoration() {
 
-        if (getDividerLineWidth() >=0 && getDividerColorResId() > 0) {
+        if (getDividerLineWidth() >= 0 && getDividerColorResId() > 0) {
             return new ItemDecoration(getActivity(), getDividerColorResId(), getDividerLineWidth());
         } else if (getDividerLineWidth() >= 0) {
             return new ItemDecoration(getActivity(), getDividerLineWidth());
@@ -90,10 +87,9 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
         listRvAdapter = adapter;
     }
 
-    protected void setOverScrollMode(int overScrollMode){
+    protected void setOverScrollMode(int overScrollMode) {
         recyclerView.setOverScrollMode(overScrollMode);
     }
-
 
 
     protected void initRefresh() {
