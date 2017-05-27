@@ -60,7 +60,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                     public void onNext(Boolean isSuccess) {
                         hideRefreshProgressBar();
                         if (isSuccess) {
-                            loadMoreWrapper.notifyDataSetChanged();
+                            realAdapter.notifyDataSetChanged();
                         }
 
                     }
@@ -74,31 +74,35 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     @Override
     protected void initLoadMore() {
         super.initLoadMore();
-        loadMoreWrapper = new LinearRVLoadMoreWrapper(listRvAdapter, recyclerView);
-        loadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
-            @Override
-            public void onLoadMoreRequested() {
 
-                if (hasMoreData) {
-                    //加载更多
-                    loadMoreData(new CommonSubscribe<Boolean>() {
+        if(!isDisableLoadMore()){
+            loadMoreWrapper = new LinearRVLoadMoreWrapper(listRvAdapter, recyclerView);
+            loadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
+                @Override
+                public void onLoadMoreRequested() {
 
-                        @Override
-                        public void onNext(Boolean isSuccess) {
-                            if (isSuccess) {
-                                loadMoreWrapper.notifyDataSetChanged();
-                            } else {
-                                hasMoreData = false;
-                                loadMoreWrapper.showNoMoreData();
+                    if (hasMoreData) {
+                        //加载更多
+                        loadMoreData(new CommonSubscribe<Boolean>() {
+
+                            @Override
+                            public void onNext(Boolean isSuccess) {
+                                if (isSuccess) {
+                                    loadMoreWrapper.notifyDataSetChanged();
+                                } else {
+                                    hasMoreData = false;
+                                    loadMoreWrapper.showNoMoreData();
+                                }
                             }
-                        }
-                    });
-                }
+                        });
+                    }
 
-            }
-        });
-        realAdapter = loadMoreWrapper;
-        recyclerView.setAdapter(realAdapter);
+                }
+            });
+            realAdapter = loadMoreWrapper;
+            recyclerView.setAdapter(realAdapter);
+        }
+
     }
 
     @Override
@@ -118,6 +122,9 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     protected void enableRefresh() {
         swipeRefreshLayout.setEnabled(true);
     }
+
+
+    protected abstract boolean isDisableLoadMore();
 
 
     public abstract void initOrRefreshData(Subscriber<Boolean> subscriber);
