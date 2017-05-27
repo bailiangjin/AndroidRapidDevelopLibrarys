@@ -47,9 +47,14 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     @Override
     protected void initRefresh() {
         super.initRefresh();
-        swipeRefreshLayout.setColorSchemeResources(R.color.color_scheme_2_1,
-                R.color.color_scheme_2_2, R.color.color_scheme_2_3,
-                R.color.color_scheme_2_4);
+        if(null!=getColorSchemeResources()&&getColorSchemeResources().length>0){
+            swipeRefreshLayout.setColorSchemeResources(getColorSchemeResources());
+        }else {
+            swipeRefreshLayout.setColorSchemeResources(R.color.color_scheme_2_1,
+                    R.color.color_scheme_2_2, R.color.color_scheme_2_3,
+                    R.color.color_scheme_2_4);
+        }
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -63,6 +68,18 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                             realAdapter.notifyDataSetChanged();
                         }
 
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        hideRefreshProgressBar();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        super.onCompleted();
+                        hideRefreshProgressBar();
                     }
                 });
 
@@ -109,6 +126,10 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     protected void setAdapter(RVMultiTypeBaseAdapter adapter) {
         super.setAdapter(adapter);
         initLoadMore();
+    }
+
+    protected int[] getColorSchemeResources(){
+        return null;
     }
 
     protected void hideRefreshProgressBar() {

@@ -14,6 +14,7 @@ public abstract class CommonSubscribe<T> extends Subscriber<T>{
 
     @Override
     public void onError(Throwable e) {
+        e.printStackTrace();
 
     }
 
