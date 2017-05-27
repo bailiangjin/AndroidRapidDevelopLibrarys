@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -54,6 +55,15 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
         initView(savedInstanceState);
         setStatusBar();
         initData(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //页面打点
+        if(!TextUtils.isEmpty(getScreenId())){
+            onScreenResume(getScreenId());
+        }
     }
 
     @Override

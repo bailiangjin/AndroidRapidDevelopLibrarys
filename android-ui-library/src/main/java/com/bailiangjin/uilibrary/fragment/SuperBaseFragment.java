@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,14 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bailiangjin.uilibrary.R;
+import com.bailiangjin.uilibrary.interfaze.AnalyticsInterface;
 import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 
 /**
  * Created by bailiangjin on 2016/10/24.
  */
 
-public abstract class SuperBaseFragment extends Fragment {
+public abstract class SuperBaseFragment extends Fragment implements AnalyticsInterface{
 
 
     protected View rootView;
@@ -62,6 +64,7 @@ public abstract class SuperBaseFragment extends Fragment {
         initListener();
         initData(savedInstanceState);
     }
+
 
 
     /**
@@ -141,6 +144,10 @@ public abstract class SuperBaseFragment extends Fragment {
     public void onResume() {
         //LogUtils.d("Fragment:::-->>onResume");
         super.onResume();
+        //页面打点
+        if(!TextUtils.isEmpty(getScreenId())){
+            onScreenResume(getScreenId());
+        }
     }
 
     @Override
@@ -173,6 +180,7 @@ public abstract class SuperBaseFragment extends Fragment {
         //LogUtils.d("Fragment:::-->>onDetach");
         super.onDetach();
     }
+
 
 
     /**
