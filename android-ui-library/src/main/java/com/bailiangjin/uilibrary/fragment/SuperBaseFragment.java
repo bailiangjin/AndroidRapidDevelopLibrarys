@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.bailiangjin.uilibrary.R;
+import com.bailiangjin.uilibrary.activity.SuperBaseActivity;
 import com.bailiangjin.uilibrary.interfaze.AnalyticsInterface;
 import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 
@@ -82,6 +83,16 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
 //            mToolbar.setPadding(0, CommonUtils.getStatusBarHeight(getActivity()), 0, 0);
 //        }
         return rootView;
+    }
+
+
+    protected void displayFragment(Fragment fragment,boolean isAddToBackStack){
+        Activity activity=getActivity();
+        if (activity instanceof SuperBaseActivity){
+            ((SuperBaseActivity) activity).displayFragment(fragment,isAddToBackStack);
+        }else {
+            throw new RuntimeException("your activity is not extend SuperBaseActivity so displayFragment can not be used");
+        }
     }
 
     /**

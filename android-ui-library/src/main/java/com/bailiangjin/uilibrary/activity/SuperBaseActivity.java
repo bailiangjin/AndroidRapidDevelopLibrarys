@@ -93,7 +93,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
         }
     }
 
-    protected void displayFragment(Fragment fragment,boolean isAddToBackStack){
+    public void displayFragment(Fragment fragment,boolean isAddToBackStack){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
         beginTransaction.add(R.id.baseContainer, fragment);    //通过事务去管理Fragment
