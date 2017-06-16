@@ -192,10 +192,9 @@ public class AppUtils {
     /**
      * 获取当前应用名
      *
-     * @param packageName
      * @return
      */
-    public static String getCurrentAppName(String packageName) {
+    public static String getCurrentAppName() {
         return getAppName(getContext().getPackageName());
     }
 
