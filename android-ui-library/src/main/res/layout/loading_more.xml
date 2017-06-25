@@ -33,7 +33,7 @@
             android:clickable="false"
             android:focusable="false"
             android:gravity="center_vertical"
-            android:text="正在加载中..."
+            android:title="正在加载中..."
             android:textColor="#333333"
             android:textSize="14sp" />
 
@@ -45,7 +45,7 @@
         android:layout_height="48dp"
         android:focusable="false"
         android:gravity="center"
-        android:text="暂无更多数据"
+        android:title="暂无更多数据"
         android:textColor="#666666"
         android:textSize="14sp"
         android:visibility="gone" />

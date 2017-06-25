@@ -15,7 +15,7 @@
         android:textSize="@dimen/title_tv_size"
         android:paddingRight="12dp"
         android:paddingTop="16dp"
-        android:text="提示"
+        android:title="提示"
         android:textColor="@color/black" />
 
     <ImageView
@@ -37,7 +37,7 @@
         android:paddingLeft="12dp"
         android:paddingRight="12dp"
         android:paddingTop="10dp"
-        android:text="提示内容"
+        android:title="提示内容"
         android:textColor="@color/black" />
 
     <ImageView
@@ -61,7 +61,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dp"
-            android:text="取消"
+            android:title="取消"
             android:textColor="@color/black" />
 
         <ImageView
@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dp"
-            android:text="确认"
+            android:title="确认"
             android:textColor="@color/black" />
 
     </LinearLayout>
