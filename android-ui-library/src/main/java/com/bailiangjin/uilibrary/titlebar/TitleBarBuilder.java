@@ -28,12 +28,12 @@ public class TitleBarBuilder {
     Map<String, MyMenuItem> itemLinkedHashMap = new LinkedHashMap<>();
 
     Toolbar mToolbar;
-    TextView tv_title;
+    TextView tvTitle;
 
     public TitleBarBuilder(final Activity activity, Toolbar toolbar) {
         mToolbar = toolbar;
 
-        tv_title = (TextView) toolbar.findViewById(R.id.tv_title_toolbar);
+        tvTitle = (TextView) toolbar.findViewById(R.id.tv_title_toolbar);
         mToolbar.setBackgroundResource(defaultBgResId);
 
         //默认 返回键按钮
@@ -45,10 +45,6 @@ public class TitleBarBuilder {
                 activity.onBackPressed();
             }
         });
-
-//        activity.setSupportActionBar(toolbar);
-//        //设为 false
-//        activity.getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mToolbar.setTitleTextAppearance(activity, R.style.title_tv_style);
         mToolbar.inflateMenu(R.menu.base_toolbar_menu);
@@ -73,7 +69,7 @@ public class TitleBarBuilder {
 
 
     public TitleBarBuilder setTitleText(String title) {
-        tv_title.setText(title);
+        tvTitle.setText(title);
         return this;
     }
 
@@ -107,10 +103,10 @@ public class TitleBarBuilder {
      * @param width dp
      */
     public void setTitleTvWidth(int width) {
-        ViewGroup.LayoutParams layoutParams = tv_title.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = tvTitle.getLayoutParams();
         layoutParams.width = dp2px(width);
-        tv_title.setLayoutParams(layoutParams);
-        tv_title.invalidate();
+        tvTitle.setLayoutParams(layoutParams);
+        tvTitle.invalidate();
     }
 
 
@@ -181,13 +177,13 @@ public class TitleBarBuilder {
     }
 
     public TitleBarBuilder addShareMenuItem(ItemClickListener listener) {
-        MyMenuItem menuItem = new MyMenuItem("分享", R.drawable.icon_answer_share, MyMenuItem.Type.SHARE, listener);
+        MyMenuItem menuItem = new MyMenuItem("分享", R.drawable.icon_share, MyMenuItem.Type.SHARE, listener);
         itemLinkedHashMap.put(menuItem.getTitle(), menuItem);
         return this;
     }
 
     public TitleBarBuilder addSearchMenuItem(ItemClickListener listener) {
-        MyMenuItem menuItem = new MyMenuItem("搜索", R.drawable.search, MyMenuItem.Type.SEARCH, listener);
+        MyMenuItem menuItem = new MyMenuItem("搜索", R.drawable.icon_search, MyMenuItem.Type.SEARCH, listener);
         itemLinkedHashMap.put(menuItem.getTitle(), menuItem);
         return this;
     }
@@ -219,10 +215,10 @@ public class TitleBarBuilder {
 
             switch (item.getType()) {
                 case SEARCH:
-                    item.setIconResId(R.drawable.search);
+                    item.setIconResId(R.drawable.icon_search);
                     break;
                 case SHARE:
-                    item.setIconResId(R.drawable.icon_answer_share);
+                    item.setIconResId(R.drawable.icon_share);
                     break;
                 case OTHER:
                     break;
@@ -250,7 +246,6 @@ public class TitleBarBuilder {
                     addMenuItem(menu, R.id.item5, item);
                     break;
                 default:
-                    //menu.add(item.getTitle());
                     itemId=-menuCount;
                     menu.add(1,itemId,0,item.getTitle());
                     Log.e("TAG"+getClass().getSimpleName(),"menu item size is over 5 ");
