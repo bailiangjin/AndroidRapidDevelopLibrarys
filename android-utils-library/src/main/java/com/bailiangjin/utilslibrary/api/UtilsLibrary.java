@@ -18,13 +18,13 @@ public class UtilsLibrary {
         onInit(application);
     }
 
-    private static void onInit(Application application) {
-        ImageLoadUtils.INSTANCE.init(application);
-    }
-
     public static Context getAppContext(){
         checkInit();
         return utilsLibraryConfig.getApplication().getApplicationContext();
+    }
+
+    private static void onInit(Application application) {
+        ImageLoadUtils.INSTANCE.init(application);
     }
 
     private static void checkInit() {
