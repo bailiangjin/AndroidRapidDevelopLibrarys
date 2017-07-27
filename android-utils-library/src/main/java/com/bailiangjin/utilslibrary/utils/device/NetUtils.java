@@ -96,7 +96,7 @@ public class NetUtils {
      * @return
      */
     public static int getWifiRssi() {
-        WifiManager mWifiManager = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
+        WifiManager mWifiManager = (WifiManager) getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = mWifiManager.getConnectionInfo();
         int wifi = wifiInfo.getRssi(); // 取 wifi 信号强度
         return wifi;
@@ -115,7 +115,7 @@ public class NetUtils {
     public static String getMacAddress() {
         if (macAddr.equals("")) {
             String macAddress = null, ip = null;
-            WifiManager wifiManager = (WifiManager) getContext().getSystemService(Context.WIFI_SERVICE);
+            WifiManager wifiManager = (WifiManager) getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
             WifiInfo info = (null == wifiManager ? null : wifiManager.getConnectionInfo());
             if (null != info) {
                 macAddress = info.getMacAddress();
@@ -233,7 +233,7 @@ public class NetUtils {
     /**
      * WIFI网络开关	 */
     public static void toggleWiFi( boolean enabled) {
-        WifiManager wm = (WifiManager) getContext()
+        WifiManager wm = (WifiManager) getContext().getApplicationContext()
                 .getSystemService(Context.WIFI_SERVICE);
         wm.setWifiEnabled(enabled);
     }
