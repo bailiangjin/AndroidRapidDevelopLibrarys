@@ -21,11 +21,11 @@
     <string name="back">返回</string>
     <string name="setting">设置</string>
     <string name="title">标题</string>
-    <string name="one_more_click_exit">再点击一次退出程序</string>
+    <string name="one_more_click_exit">再点一次 退出应用</string>
 
     <!-- 提示相关 -->
     <string name="server_exception">您的网络状况不太好哦</string>
-    <string name="connect_server_exception">联接服务器异常</string>
+    <string name="connect_server_exception">连接服务器异常</string>
     <string name="download_error">下载出现异常</string>
     <string name="search">搜索</string>
     <string name="confirm">确认</string>
