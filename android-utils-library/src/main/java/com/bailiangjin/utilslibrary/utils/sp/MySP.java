@@ -50,8 +50,13 @@ public class MySP {
      * @return
      */
     public boolean getBoolean(String key) {
+        return getBoolean(key,false);
+    }
+
+
+    public boolean getBoolean(String key,boolean defValue) {
         SharedPreferences sp = getSp();
-        return sp.getBoolean(key, false);
+        return sp.getBoolean(key, defValue);
     }
 
 
