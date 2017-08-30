@@ -40,7 +40,7 @@
     <string name="splash">Splash</string>
     <string name="launch_mode">LaunchMode</string>
     <string name="network">网络</string>
-    <string name="notice">提示</string>
+    <string name="noticeUpdate">提示</string>
     <string name="exit_app">确认退出应用</string>
 
 
