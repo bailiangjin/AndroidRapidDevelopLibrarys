@@ -99,6 +99,18 @@ public class MySP {
         return sp.getString(key, null);
     }
 
+    public long getLong(String key) {
+
+        return getLong(key,-1L);
+    }
+    public long getLong(String key,long defValue) {
+        if (TextUtils.isEmpty(key)) {
+            return defValue;
+        }
+        SharedPreferences sp = getSp();
+        return sp.getLong(key, defValue);
+    }
+
     /**
      * 移除某个key值已经对应的值
      *

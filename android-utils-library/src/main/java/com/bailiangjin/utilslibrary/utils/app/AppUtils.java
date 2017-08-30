@@ -41,7 +41,7 @@ import java.util.List;
  * @author bailiangjin
  */
 public class AppUtils {
-
+    public static final String TAG = AppUtils.class.getSimpleName();
     /**
      * 再点一次退出应用 上次点击时间
      */
@@ -320,6 +320,23 @@ public class AppUtils {
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+    public static boolean autoInstallApk(Uri uri) {
+        Context context = getContext();
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setDataAndType(uri,
+                    "application/vnd.android.package-archive");
+            context.startActivity(intent);
+            return true;
+        } catch (Exception e) {
+            Log.e(TAG,e.getMessage());
             e.printStackTrace();
             return false;
         }
