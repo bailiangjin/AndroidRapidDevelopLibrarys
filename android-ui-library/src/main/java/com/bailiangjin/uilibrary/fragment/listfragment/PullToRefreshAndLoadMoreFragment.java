@@ -5,10 +5,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
 import com.bailiangjin.uilibrary.recyclerview.wrapper.LinearRVLoadMoreWrapper;
-import com.bailiangjin.uilibrary.rx.CommonSubscribe;
+import com.bailiangjin.uilibrary.rx.ARxObserver;
+import com.bailiangjin.uilibrary.rx.CommonObserver;
 import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
-
-import rx.Subscriber;
 
 
 /**
@@ -60,7 +59,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
             public void onRefresh() {
                 curPage = DEFAULT_PAGE;
                 //下拉刷新
-                initOrRefreshData(new CommonSubscribe<Boolean>() {
+                initOrRefreshData(new CommonObserver<Boolean>() {
                     @Override
                     public void onNext(Boolean isSuccess) {
                         hideRefreshProgressBar();
@@ -77,10 +76,11 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                     }
 
                     @Override
-                    public void onCompleted() {
-                        super.onCompleted();
+                    public void onComplete() {
+                        super.onComplete();
                         hideRefreshProgressBar();
                     }
+
                 });
 
             }
@@ -100,7 +100,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
 
                     if (hasMoreData) {
                         //加载更多
-                        loadMoreData(new CommonSubscribe<Boolean>() {
+                        loadMoreData(new CommonObserver<Boolean>() {
 
                             @Override
                             public void onNext(Boolean isSuccess) {
@@ -148,9 +148,9 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     protected abstract boolean isDisableLoadMore();
 
 
-    public abstract void initOrRefreshData(Subscriber<Boolean> subscriber);
+    public abstract void initOrRefreshData(ARxObserver<Boolean> subscriber);
 
-    protected abstract void loadMoreData(Subscriber<Boolean> subscriber);
+    protected abstract void loadMoreData(ARxObserver<Boolean> subscriber);
 
 
 }
