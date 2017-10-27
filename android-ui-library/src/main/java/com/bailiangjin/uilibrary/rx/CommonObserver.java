@@ -1,21 +1,19 @@
 package com.bailiangjin.uilibrary.rx;
 
-import rx.Subscriber;
 
 /**
  * Created by bailiangjin on 2017/3/30.
  */
 
-public abstract class CommonSubscribe<T> extends Subscriber<T>{
+public abstract class CommonObserver<T> extends ARxObserver<T> {
     @Override
-    public void onCompleted() {
+    public void onComplete() {
 
     }
 
     @Override
     public void onError(Throwable e) {
         e.printStackTrace();
-
     }
 
 
