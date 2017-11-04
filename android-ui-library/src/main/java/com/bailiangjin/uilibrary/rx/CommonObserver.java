@@ -5,7 +5,7 @@ package com.bailiangjin.uilibrary.rx;
  * Created by bailiangjin on 2017/3/30.
  */
 
-public abstract class CommonObserver<T> extends ARxObserver<T> {
+public abstract class CommonObserver<T> extends BaseRxObserver<T> {
     @Override
     public void onComplete() {
 

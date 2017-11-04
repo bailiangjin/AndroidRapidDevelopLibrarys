@@ -5,7 +5,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
 import com.bailiangjin.uilibrary.recyclerview.wrapper.LinearRVLoadMoreWrapper;
-import com.bailiangjin.uilibrary.rx.ARxObserver;
+import com.bailiangjin.uilibrary.rx.BaseRxObserver;
 import com.bailiangjin.uilibrary.rx.CommonObserver;
 import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
 
@@ -148,9 +148,9 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     protected abstract boolean isDisableLoadMore();
 
 
-    public abstract void initOrRefreshData(ARxObserver<Boolean> subscriber);
+    public abstract void initOrRefreshData(BaseRxObserver<Boolean> subscriber);
 
-    protected abstract void loadMoreData(ARxObserver<Boolean> subscriber);
+    protected abstract void loadMoreData(BaseRxObserver<Boolean> subscriber);
 
 
 }
