@@ -62,6 +62,7 @@ ext {
             SupportV4            : "com.android.support:support-v4:$supportLibraryVersion",
             SupportRecyclerviewV7: "com.android.support:recyclerview-v7:$supportLibraryVersion",
             SupportDesign        : "com.android.support:design:$supportLibraryVersion",
+            SupportConstraint        : "com.android.support.constraint:constraint-layout:1.0.2",
             JUnit                : "junit:junit:$junitVersion",
 
             //第三方库

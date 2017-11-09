@@ -1,12 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
+
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
         applicationId "com.bailiangjin.rapid.demo"
-        minSdkVersion 15
-        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -25,6 +27,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile sdkVar.SupportV7
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile "junit:junit:$rootProject.junitVersion"
+    compile sdkVar.SupportConstraint
+    testCompile sdkVar.JUnit
 }
