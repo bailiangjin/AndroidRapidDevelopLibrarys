@@ -34,7 +34,7 @@ dependencies {
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "io.reactivex.rxjava2:rxjava:2+"
+    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
     compile project(':baseadapter-recyclerview')
 
 }

@@ -27,5 +27,5 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.zhy:okhttputils:2.6.2'
-    testCompile 'junit:junit:4.12'
+    testCompile "junit:junit:$rootProject.junitVersion"
 }
