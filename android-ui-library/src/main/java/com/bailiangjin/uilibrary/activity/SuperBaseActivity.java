@@ -37,7 +37,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
     /**
      * Handler 消息处理
      */
-    protected UIHandler uiHandler = new UIHandler(Looper.getMainLooper());
+    protected UiHandler uiHandler = new UiHandler(Looper.getMainLooper());
 
 
     @Override
