@@ -31,10 +31,10 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjavaVersion"
+    compile sdkVar.SupportV7
+    compile sdkVar.SupportV4
+    compile sdkVar.SupportDesign
+    compile sdkVar.RxJava
     compile project(':baseadapter-recyclerview')
 
 }

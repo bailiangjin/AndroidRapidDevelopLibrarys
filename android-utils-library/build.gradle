@@ -35,11 +35,13 @@ android {
 
 
 dependencies {
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    compile "com.squareup.okhttp:okhttp:$rootProject.okhttpVersion"
-    compile "org.greenrobot:eventbus:$rootProject.eventbusVersion"
+    compile sdkVar.UniversalImageLoader
+    compile sdkVar.OkHttp
+    compile sdkVar.EventBus
+
     compile files('libs/AJavaBaseLib.jar')
     compile project(':android-ui-library')
+
 }
 
 
