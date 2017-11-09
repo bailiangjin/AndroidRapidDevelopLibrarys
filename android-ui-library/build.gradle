@@ -26,17 +26,17 @@ android {
         options.addStringOption('encoding', 'UTF-8')
     }
 
+    buildToolsVersion '26.0.2'
 }
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile sdkVar.SupportV7
-    compile sdkVar.SupportV4
-    compile sdkVar.SupportDesign
-    compile sdkVar.RxJava
-    compile project(':baseadapter-recyclerview')
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation sdkVar.SupportV7
+    implementation sdkVar.SupportV4
+    implementation sdkVar.SupportDesign
+    implementation sdkVar.RxJava
+    implementation project(':baseadapter-recyclerview')
 }
 
 

@@ -30,17 +30,19 @@ android {
 //    dataBinding {
 //        enabled = true
 //    }
+    buildToolsVersion '26.0.2'
 }
 
 
 
 dependencies {
-    compile sdkVar.UniversalImageLoader
-    compile sdkVar.OkHttp
-    compile sdkVar.EventBus
+    implementation sdkVar.UniversalImageLoader
+    implementation sdkVar.OkHttp
+    implementation sdkVar.EventBus
 
-    compile files('libs/AJavaBaseLib.jar')
-    compile project(':android-ui-library')
+    implementation files('libs/AJavaBaseLib.jar')
+    implementation project(':android-ui-library')
+
 
 }
 
