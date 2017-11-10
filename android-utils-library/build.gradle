@@ -25,8 +25,6 @@ android {
         }
     }
 
-
-
 //    dataBinding {
 //        enabled = true
 //    }
@@ -36,17 +34,15 @@ android {
 
 
 dependencies {
-    implementation sdkVar.UniversalImageLoader
-    implementation sdkVar.OkHttp
-    implementation sdkVar.EventBus
+    api sdkVar.UniversalImageLoader
+    api sdkVar.OkHttp
+    api sdkVar.EventBus
 
-    implementation files('libs/AJavaBaseLib.jar')
-    implementation project(':android-ui-library')
+    api files('libs/AJavaBaseLib.jar')
+    api project(':android-ui-library')
 
 
 }
-
-
 
 ////dependsOn 可根据实际需要增加或更改
 //task buildJar(dependsOn: ['compileReleaseJava'], type: Jar) {

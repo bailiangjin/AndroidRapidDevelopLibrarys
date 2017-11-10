@@ -19,9 +19,9 @@ android {
     }
 }
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api  fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation sdkVar.SupportRecyclerviewV7
+    api  sdkVar.SupportRecyclerviewV7
 
 }
 

@@ -31,12 +31,12 @@ android {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation sdkVar.SupportV7
-    implementation sdkVar.SupportV4
-    implementation sdkVar.SupportDesign
-    implementation sdkVar.RxJava
-    implementation project(':baseadapter-recyclerview')
+    api  fileTree(dir: 'libs', include: ['*.jar'])
+    api  sdkVar.SupportV7
+    api  sdkVar.SupportV4
+    api  sdkVar.SupportDesign
+    api  sdkVar.RxJava
+    api  project(':baseadapter-recyclerview')
 }
 
 
