@@ -29,5 +29,5 @@ dependencies {
     })
     api  sdkVar.ZHYOkHttp
     testImplementation  sdkVar.JUnit
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation sdkVar.Kotlin
 }

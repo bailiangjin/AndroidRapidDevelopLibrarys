@@ -38,7 +38,7 @@ dependencies {
     api  sdkVar.SupportDesign
     api  sdkVar.RxJava
     api  project(':baseadapter-recyclerview')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation sdkVar.Kotlin
 }
 
 
