@@ -228,4 +228,72 @@
     <style name="tv_black_12_999" parent="@style/tv_black_14_999">
         <item name="android:textSize">12sp</item>
     </style>
+
+    <style name="tv_white_base" parent="@style/tv_base_style">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="tv_white_8" parent="@style/tv_white_base">
+        <item name="android:textSize">8dp</item>
+    </style>
+
+    <style name="tv_white_10" parent="@style/tv_white_base">
+        <item name="android:textSize">10dp</item>
+    </style>
+
+    <style name="tv_white_12" parent="@style/tv_white_base">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="tv_white_14" parent="@style/tv_white_base">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="tv_white_16" parent="@style/tv_white_base">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="tv_white_18" parent="@style/tv_white_base">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="tv_white_20" parent="@style/tv_white_base">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="tv_white_22" parent="@style/tv_white_base">
+        <item name="android:textSize">22dp</item>
+    </style>
+
+    <style name="tv_white_24" parent="@style/tv_white_base">
+        <item name="android:textSize">24dp</item>
+    </style>
+
+    <style name="tv_white_26" parent="@style/tv_white_base">
+        <item name="android:textSize">26dp</item>
+    </style>
+
+    <style name="tv_white_28" parent="@style/tv_white_base">
+        <item name="android:textSize">28dp</item>
+    </style>
+
+    <style name="tv_white_30" parent="@style/tv_white_base">
+        <item name="android:textSize">30dp</item>
+    </style>
+
+    <style name="tv_white_32" parent="@style/tv_white_base">
+        <item name="android:textSize">32dp</item>
+    </style>
+
+    <style name="tv_white_36" parent="@style/tv_white_base">
+        <item name="android:textSize">36dp</item>
+    </style>
+
+
+    <style name="tv_white_40" parent="@style/tv_white_base">
+        <item name="android:textSize">40dp</item>
+    </style>
+
 </resources>
