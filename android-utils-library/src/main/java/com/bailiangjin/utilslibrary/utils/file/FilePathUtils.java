@@ -12,7 +12,7 @@ import java.io.File;
  *
  * @author blj
  */
-public class FilePathUtil {
+public class FilePathUtils {
 
     /**
      * /mnt/sdcard

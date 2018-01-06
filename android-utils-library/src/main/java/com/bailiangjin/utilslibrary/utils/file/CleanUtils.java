@@ -83,7 +83,7 @@ public class CleanUtils {
 //     * @return
 //     */
 //    public static boolean cleanWebFileDir() {
-//        String webFileCachePath = FilePathUtil.getWebFileCachePath();
+//        String webFileCachePath = FilePathUtils.getWebFileCachePath();
 //        return FileUtils.deleteFile(webFileCachePath);
 //    }
 
@@ -94,7 +94,7 @@ public class CleanUtils {
      * @return
      */
     public static boolean cleanAppRootFilePath() {
-        String appFileRootPath = FilePathUtil.getAppPath();
+        String appFileRootPath = FilePathUtils.getAppPath();
         return FileUtils.deleteFile(appFileRootPath);
     }
 

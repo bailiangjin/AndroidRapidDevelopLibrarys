@@ -2,7 +2,7 @@ package com.bailiangjin.utilslibrary.utils.device;
 
 import android.media.MediaRecorder;
 
-import com.bailiangjin.utilslibrary.utils.file.FilePathUtil;
+import com.bailiangjin.utilslibrary.utils.file.FilePathUtils;
 import com.bailiangjin.utilslibrary.utils.ToastUtils;
 
 import java.io.File;
@@ -33,7 +33,7 @@ public enum RecorderUtils {
 
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_WB);    //设置编码格式
 
-        path = FilePathUtil.getAppPath() + "/db_demo/AudioFrequency/" + System.currentTimeMillis() + ".amr";
+        path = FilePathUtils.getAppPath() + "/db_demo/AudioFrequency/" + System.currentTimeMillis() + ".amr";
 
         File file = new File(path);
 
