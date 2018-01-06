@@ -108,6 +108,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
     /**
      * 隐藏公共title
      */
+    @Override
     public void hideCommonBaseTitle() {
         if (toolbar != null) {
             toolbar.setVisibility(View.GONE);
@@ -123,6 +124,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
     /**
      * 显示公共的title
      */
+    @Override
     public void showCommonBaseTitle() {
 
         if (toolbar != null) {
@@ -148,6 +150,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
         uiHandler.setListener(new UIHandlerListener()
 
         {
+            @Override
             public void handleMessage(Message msg) {
                 handleMsg(msg);// 有消息就提交给子类实现的方法
             }
