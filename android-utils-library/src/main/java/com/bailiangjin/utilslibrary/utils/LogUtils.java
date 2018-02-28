@@ -6,48 +6,56 @@ import android.util.Log;
  * @author blj
  */
 public class LogUtils {
-    private static String TAG = "baselibrary";
+    private static String TAG = "IM_SDK";
     private static String INFO = "-->>";
     private static String INIO = "::";
     private static int DEBUG = 0;
     public final static int LOG_DEBUG = 0;
-    public final static int LOG_INFO = 1;
-    public final static int LOG_WARN = 2;
-    public final static int LOG_ERROR = 3;
+    public final static int LOG_INFO = LOG_DEBUG + 1;
+    public final static int LOG_WARN = LOG_INFO + 1;
+    public final static int LOG_ERROR = LOG_WARN + 1;
 
     public final static void e(String message) {
         if (DEBUG <= LOG_ERROR) {
-            StackTraceElement stackTrace = new Throwable().getStackTrace()[1];
-            Log.e(TAG,
-                    stackTrace.getClassName() + INIO + stackTrace.getLineNumber() + INIO + stackTrace.getMethodName()
-                            + INFO + message);
+            Log.e(TAG, getFormatString(message));
         }
     }
 
     public final static void i(String message) {
         if (DEBUG <= LOG_INFO) {
-            StackTraceElement stackTrace = new Throwable().getStackTrace()[1];
-            Log.i(TAG,
-                    stackTrace.getClassName() + INIO + stackTrace.getLineNumber() + INIO + stackTrace.getMethodName()
-                            + INFO + message);
+            Log.i(TAG, getFormatString(message));
         }
     }
 
     public final static void d(String message) {
         if (DEBUG <= LOG_DEBUG) {
-            StackTraceElement stackTrace = new Throwable().getStackTrace()[1];
-            Log.d(TAG,
-                    stackTrace.getClassName() + INIO + stackTrace.getLineNumber() + INIO + stackTrace.getMethodName()
-                            + INFO + message);
+            Log.d(TAG, getFormatString(message));
         }
     }
 
     public final static void w(String message) {
         if (DEBUG <= LOG_WARN) {
-            StackTraceElement stackTrace = new Throwable().getStackTrace()[1];
-            Log.w(TAG,
-                    stackTrace.getClassName() + INIO + stackTrace.getLineNumber() + INIO + stackTrace.getMethodName()
-                            + INFO + message);
+            Log.w(TAG, getFormatString(message));
         }
+    }
+
+    private static String getFormatString(String orgMsg) {
+        StackTraceElement stackTrace = new Throwable().getStackTrace()[1];
+        String threadName = Thread.currentThread().getName();
+        String className = stackTrace.getClassName();
+        int lineNumber = stackTrace.getLineNumber();
+        String methodName = stackTrace.getMethodName();
+
+        StringBuffer sb = new StringBuffer();
+        sb.append(threadName);
+        sb.append( INIO);
+        sb.append(className);
+        sb.append(INIO);
+        sb.append(lineNumber);
+        sb.append(INIO);
+        sb.append(methodName);
+        sb.append(INFO);
+        sb.append(orgMsg);
+        return sb.toString();
     }
 }
