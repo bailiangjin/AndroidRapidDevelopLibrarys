@@ -23,11 +23,11 @@ android {
 }
 
 dependencies {
-    api  fileTree(dir: 'libs', include: ['*.jar'])
+    implementation  fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    api  sdkVar.ZHYOkHttp
+    implementation  sdkVar.ZHYOkHttp
     testImplementation  sdkVar.JUnit
     implementation sdkVar.Kotlin
 }
