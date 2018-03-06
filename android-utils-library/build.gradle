@@ -41,7 +41,7 @@ dependencies {
 
     api files('libs/AJavaBaseLib.jar')
     api project(':android-ui-library')
-    implementation sdkVar.Kotlin
+    //implementation sdkVar.Kotlin
 
 
 }

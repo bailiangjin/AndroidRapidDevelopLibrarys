@@ -38,7 +38,7 @@ dependencies {
     api  sdkVar.SupportDesign
     api  sdkVar.RxJava
     api  project(':baseadapter-recyclerview')
-    implementation sdkVar.Kotlin
+    //api sdkVar.Kotlin
 }
 
 
