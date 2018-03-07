@@ -2,22 +2,28 @@ package com.bailiangjin.uilibrary.recyclerview.adapter;
 
 import android.content.Context;
 
+import com.zhy.adapter.recyclerview.base.ItemViewDelegate;
 import com.zhy.adapter.recyclerview.base.ViewHolder;
 
 /**
  * 单种类型条目的 RecyclerViewBaseAdapter
  * Created by bailiangjin on 2016/12/20.
  */
-public abstract class RVSingleTypeBaseAdapter<T> extends RVMultiTypeBaseAdapter<T> {
+public abstract class RVSingleTypeBaseAdapter<T> extends RVMultiTypeBaseAdapter<T> implements ItemViewDelegate<T>{
 
 
 
     public RVSingleTypeBaseAdapter(Context context) {
         super(context);
-        addItemViewDelegate(new RVSingleTypeDelegate<T>() {
+        addItemViewDelegate(new ItemViewDelegate<T>() {
             @Override
             public int getItemViewLayoutId() {
-                return getItemLayoutResId();
+                return RVSingleTypeBaseAdapter.this.getItemViewLayoutId();
+            }
+
+            @Override
+            public boolean isForViewType(T item, int position) {
+                return true;
             }
 
             @Override
@@ -31,7 +37,5 @@ public abstract class RVSingleTypeBaseAdapter<T> extends RVMultiTypeBaseAdapter<
 
 
 
-    protected abstract int getItemLayoutResId();
 
-    protected abstract void convert(ViewHolder holder, T item, int position);
 }
