@@ -11,8 +11,6 @@ import com.zhy.adapter.recyclerview.base.ViewHolder;
  */
 public abstract class RVSingleTypeBaseAdapter<T> extends RVMultiTypeBaseAdapter<T> implements ItemViewDelegate<T>{
 
-
-
     public RVSingleTypeBaseAdapter(Context context) {
         super(context);
         addItemViewDelegate(new ItemViewDelegate<T>() {
@@ -35,7 +33,15 @@ public abstract class RVSingleTypeBaseAdapter<T> extends RVMultiTypeBaseAdapter<
 
     }
 
-
-
-
+    /**
+     * 单类型 永远返回true
+     * 子类不需要Override 该方法
+     * @param item
+     * @param position
+     * @return
+     */
+    @Override
+    public final boolean isForViewType(T item, int position) {
+        return true;
+    }
 }
