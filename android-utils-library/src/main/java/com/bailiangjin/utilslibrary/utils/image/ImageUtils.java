@@ -1,11 +1,11 @@
-package com.bailiangjin.utilslibrary.utils.Image1;
+package com.bailiangjin.utilslibrary.utils.image;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 
-import com.bailiangjin.utilslibrary.utils.Image1.interfaze.IImageCompress;
-import com.bailiangjin.utilslibrary.utils.Image1.model.ImageWidthHeightParam;
+import com.bailiangjin.utilslibrary.utils.image.interfaze.IImageCompress;
+import com.bailiangjin.utilslibrary.utils.image.model.ImageWidthHeightParam;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
 
 import java.io.ByteArrayOutputStream;
