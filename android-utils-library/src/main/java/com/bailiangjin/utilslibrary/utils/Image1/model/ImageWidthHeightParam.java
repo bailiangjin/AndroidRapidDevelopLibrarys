@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.utils.Image.model;
+package com.bailiangjin.utilslibrary.utils.Image1.model;
 
 /**
  * 图片宽高参数

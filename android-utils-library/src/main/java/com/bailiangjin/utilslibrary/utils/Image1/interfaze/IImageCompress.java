@@ -1,8 +1,8 @@
-package com.bailiangjin.utilslibrary.utils.Image.interfaze;
+package com.bailiangjin.utilslibrary.utils.Image1.interfaze;
 
 import android.graphics.Bitmap;
 
-import com.bailiangjin.utilslibrary.utils.Image.model.ImageWidthHeightParam;
+import com.bailiangjin.utilslibrary.utils.Image1.model.ImageWidthHeightParam;
 
 /**
  * 图片压缩接口

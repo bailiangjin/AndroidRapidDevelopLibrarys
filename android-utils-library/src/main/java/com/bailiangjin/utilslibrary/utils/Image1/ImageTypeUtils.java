@@ -1,9 +1,9 @@
-package com.bailiangjin.utilslibrary.utils.Image;
+package com.bailiangjin.utilslibrary.utils.Image1;
 
 import android.text.TextUtils;
 
 import com.bailiangjin.javabaselib.utils.FileUtils;
-import com.bailiangjin.utilslibrary.utils.Image.model.ImageType;
+import com.bailiangjin.utilslibrary.utils.Image1.model.ImageType;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.utils.Image.model;
+package com.bailiangjin.utilslibrary.utils.Image1.model;
 
 /**
  * 文件类型

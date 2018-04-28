@@ -1,4 +1,4 @@
-package com.bailiangjin.utilslibrary.utils.Image;
+package com.bailiangjin.utilslibrary.utils.Image1;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
