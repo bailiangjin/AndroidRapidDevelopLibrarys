@@ -7,6 +7,7 @@ import android.media.ExifInterface;
 import android.media.ThumbnailUtils;
 import android.text.TextUtils;
 
+import com.bailiangjin.javabaselib.utils.FileUtils;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
 
 import java.io.File;
@@ -21,9 +22,9 @@ import java.io.IOException;
 public class BitmapUtils {
 
 
-
     /**
      * 获取图片参数 不加载图片
+     *
      * @param filePath
      * @return
      */
@@ -43,7 +44,6 @@ public class BitmapUtils {
     }
 
 
-
     /**
      * 旋转bitmap
      *
@@ -52,37 +52,46 @@ public class BitmapUtils {
      * @return
      */
     public static Bitmap rotateBitmap(Bitmap bitmap, String sourceImageFilePath) {
+        if (null == bitmap) {
+            return null;
+        }
+
+        if (!FileUtils.isFileExist(sourceImageFilePath)) {
+            return bitmap;
+        }
         //照片旋转
+        ExifInterface exifInterface = null;
         try {
-            ExifInterface exifInterface = new ExifInterface(sourceImageFilePath);
-            int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
-            int rotate = 0;
-            switch (orientation) {
-                case ExifInterface.ORIENTATION_ROTATE_270:
-                    rotate = 270;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_180:
-                    rotate = 180;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_90:
-                    rotate = 90;
-                    break;
-                default:
-                    rotate = 0;
-            }
-            if (rotate != 0) {
-                Matrix matrix = new Matrix();
-                matrix.postRotate(rotate);
-                Bitmap rotateBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-                if (rotateBitmap != bitmap) {
-                    if (!bitmap.isRecycled()) {
-                        bitmap.recycle();
-                    }
-                }
-                bitmap = rotateBitmap;
-            }
+            exifInterface = new ExifInterface(sourceImageFilePath);
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
+        }
+        int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+        int rotate = 0;
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                rotate = 270;
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                rotate = 180;
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                rotate = 90;
+                break;
+            default:
+                rotate = 0;
+        }
+        if (rotate != 0) {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(rotate);
+            Bitmap rotateBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            if (rotateBitmap != bitmap) {
+                if (!bitmap.isRecycled()) {
+                    bitmap.recycle();
+                }
+            }
+            bitmap = rotateBitmap;
         }
         return bitmap;
     }

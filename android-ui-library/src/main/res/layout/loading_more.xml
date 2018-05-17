@@ -40,7 +40,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/no_more_data"
+        android:id="@+id/tv_no_more_data"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:focusable="false"

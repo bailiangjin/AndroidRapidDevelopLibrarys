@@ -1,9 +1,9 @@
 package com.zhy.adapter.recyclerview.wrapper;
 
+import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.View;
 import android.view.ViewGroup;
 
 import com.zhy.adapter.recyclerview.base.ViewHolder;
@@ -13,22 +13,19 @@ import com.zhy.adapter.recyclerview.utils.WrapperUtils;
 /**
  * Created by zhy on 16/6/23.
  */
-public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>
-{
+public abstract class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final int ITEM_TYPE_LOAD_MORE = Integer.MAX_VALUE - 2;
 
     protected RecyclerView.Adapter mInnerAdapter;
-    protected View mLoadMoreView;
-    private int mLoadMoreLayoutId;
+    protected OnLoadMoreListener mOnLoadMoreListener;
 
     public LoadMoreWrapper(RecyclerView.Adapter adapter)
     {
         mInnerAdapter = adapter;
     }
 
-    private boolean hasLoadMore()
-    {
-        return mLoadMoreView != null || mLoadMoreLayoutId != 0;
+    private boolean hasLoadMore() {
+        return getLoadMoreLayoutResId() != 0;
     }
 
 
@@ -53,13 +50,7 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
         if (viewType == ITEM_TYPE_LOAD_MORE)
         {
             ViewHolder holder;
-            if (mLoadMoreView != null)
-            {
-                holder = ViewHolder.createViewHolder(parent.getContext(), mLoadMoreView);
-            } else
-            {
-                holder = ViewHolder.createViewHolder(parent.getContext(), parent, mLoadMoreLayoutId);
-            }
+            holder = ViewHolder.createViewHolder(parent.getContext(), parent, getLoadMoreLayoutResId());
             return holder;
         }
         return mInnerAdapter.onCreateViewHolder(parent, viewType);
@@ -137,26 +128,30 @@ public class LoadMoreWrapper<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
         void onLoadMoreRequested();
     }
 
-    protected OnLoadMoreListener mOnLoadMoreListener;
 
-    public LoadMoreWrapper setOnLoadMoreListener(OnLoadMoreListener loadMoreListener)
-    {
-        if (loadMoreListener != null)
-        {
+    public LoadMoreWrapper setOnLoadMoreListener(OnLoadMoreListener loadMoreListener) {
+        if (loadMoreListener != null) {
             mOnLoadMoreListener = loadMoreListener;
         }
         return this;
     }
 
-    public LoadMoreWrapper setLoadMoreView(View loadMoreView)
-    {
-        mLoadMoreView = loadMoreView;
-        return this;
+
+    public void notifyDataChanged() {
+        Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                notifyDataSetChanged();
+            }
+        });
     }
 
-    public LoadMoreWrapper setLoadMoreView(int layoutId)
-    {
-        mLoadMoreLayoutId = layoutId;
-        return this;
-    }
+    /**
+     * 获取上拉加载更多 布局资源id
+     *
+     * @return
+     */
+    public abstract int getLoadMoreLayoutResId();
+
 }

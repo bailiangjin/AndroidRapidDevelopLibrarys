@@ -4,9 +4,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
+import com.bailiangjin.uilibrary.recyclerview.interfaze.ILoadMoreCallback;
+import com.bailiangjin.uilibrary.recyclerview.interfaze.IRefreshCallback;
 import com.bailiangjin.uilibrary.recyclerview.wrapper.LinearRVLoadMoreWrapper;
-import com.bailiangjin.uilibrary.rx.BaseRxObserver;
-import com.bailiangjin.uilibrary.rx.CommonObserver;
 import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
 
 
@@ -18,12 +18,11 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
 
     SwipeRefreshLayout swipeRefreshLayout;
 
+    protected LinearRVLoadMoreWrapper loadMoreWrapper;
 
-    LinearRVLoadMoreWrapper loadMoreWrapper;
+    private boolean isDisableRefresh = false;
 
-    private static final int DEFAULT_PAGE = 1;
 
-    private int curPage = DEFAULT_PAGE;
     private boolean hasMoreData = true;
 
     @Override
@@ -54,35 +53,36 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                     R.color.color_scheme_2_4);
         }
 
+        isDisableRefresh = isDisableRefresh();
+
+        if (isDisableRefresh) {
+            return;
+        }
+
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                curPage = DEFAULT_PAGE;
                 //下拉刷新
-                initOrRefreshData(new CommonObserver<Boolean>() {
-                    @Override
-                    public void onNext(Boolean isSuccess) {
-                        hideRefreshProgressBar();
-                        if (isSuccess) {
-                            realAdapter.notifyDataSetChanged();
-                        }
+                initOrRefreshData(new IRefreshCallback() {
 
+                    @Override
+                    public void onStart() {
+                        // do nothing
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        super.onError(e);
+                    public void onSuccess() {
                         hideRefreshProgressBar();
+                        notifyAdapterDataChanged();
                     }
 
                     @Override
-                    public void onComplete() {
-                        super.onComplete();
+                    public void Failed() {
                         hideRefreshProgressBar();
+                        shortToast("刷新失败");
                     }
-
                 });
-
             }
         });
     }
@@ -99,26 +99,29 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                 public void onLoadMoreRequested() {
 
                     if (hasMoreData) {
-                        //加载更多
-                        loadMoreData(new CommonObserver<Boolean>() {
-
+                        loadMoreData(new ILoadMoreCallback() {
                             @Override
-                            public void onNext(Boolean isSuccess) {
-                                if (isSuccess) {
-                                    loadMoreWrapper.notifyDataSetChanged();
-                                } else {
-                                    hasMoreData = false;
-                                    loadMoreWrapper.showNoMoreData();
-                                }
+                            public void onLoadResult(boolean isHasMoreData) {
+                                setHasMoreData(isHasMoreData);
                             }
                         });
+                    } else {
+                        setHasMoreData(false);
                     }
-
                 }
             });
             realAdapter = loadMoreWrapper;
             recyclerView.setAdapter(realAdapter);
         }
+
+    }
+
+    public void setHasMoreData(boolean isHasMoreData) {
+        if (isHasMoreData) {
+            notifyAdapterDataChanged();
+        }
+        this.hasMoreData = isHasMoreData;
+        this.loadMoreWrapper.setHasMoreData(isHasMoreData);
 
     }
 
@@ -137,10 +140,12 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     }
 
     protected void disableRefresh() {
+        isDisableRefresh = true;
         swipeRefreshLayout.setEnabled(false);
     }
 
     protected void enableRefresh() {
+        isDisableRefresh = false;
         swipeRefreshLayout.setEnabled(true);
     }
 
@@ -148,9 +153,12 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     protected abstract boolean isDisableLoadMore();
 
 
-    public abstract void initOrRefreshData(BaseRxObserver<Boolean> subscriber);
+    protected abstract boolean isDisableRefresh();
 
-    protected abstract void loadMoreData(BaseRxObserver<Boolean> subscriber);
+
+    public abstract void initOrRefreshData(IRefreshCallback refreshCallback);
+
+    protected abstract void loadMoreData(ILoadMoreCallback loadMoreCallback);
 
 
 }
