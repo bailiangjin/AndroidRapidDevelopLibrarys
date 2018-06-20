@@ -78,7 +78,7 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
                     }
 
                     @Override
-                    public void Failed() {
+                    public void onFailed() {
                         hideRefreshProgressBar();
                         shortToast("刷新失败");
                     }

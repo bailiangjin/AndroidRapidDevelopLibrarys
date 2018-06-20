@@ -22,5 +22,5 @@ public interface IRefreshCallback {
     /**
      * 刷新失败
      */
-    void Failed();
+    void onFailed();
 }
