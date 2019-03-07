@@ -49,6 +49,7 @@ public class AppUtils {
 
     /**
      * 再点一次退出应用
+     *
      * @param activity
      * @return boolean 是否消耗本次事件
      */
@@ -483,14 +484,15 @@ public class AppUtils {
 
     /**
      * 手动卸载App
+     *
      * @param context Context
      * @param pkgName 要卸载的应用包名
      */
-    private static void uninstallAppByClick(Context context,String pkgName) {
+    private static void uninstallAppByClick(Context context, String pkgName) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_DELETE);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setData(Uri.parse("package:"+pkgName));
+        intent.setData(Uri.parse("package:" + pkgName));
         context.startActivity(intent);
     }
 
@@ -510,17 +512,18 @@ public class AppUtils {
 
     /**
      * 根据桌面launcher 启动任意应用
+     *
      * @param pkgName
      * @return
      */
-    public static boolean startAnyApp(String pkgName){
-        try{
+    public static boolean startAnyApp(String pkgName) {
+        try {
             Intent LaunchIntent = getContext().getPackageManager().getLaunchIntentForPackage(pkgName);
             getContext().startActivity(LaunchIntent);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-            LogUtils.e("startAppError:"+e.getMessage());
+            LogUtils.e("startAppError:" + e.getMessage());
 
         }
         return false;
