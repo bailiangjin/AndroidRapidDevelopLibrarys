@@ -4,7 +4,6 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
 
     defaultConfig {
@@ -29,7 +28,6 @@ android {
 //    dataBinding {
 //        enabled = true
 //    }
-    buildToolsVersion '26.0.2'
 }
 
 

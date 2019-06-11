@@ -3,7 +3,6 @@ apply plugin: 'kotlin-android'
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -27,7 +26,6 @@ android {
         options.addStringOption('encoding', 'UTF-8')
     }
 
-    buildToolsVersion '26.0.2'
 }
 
 
