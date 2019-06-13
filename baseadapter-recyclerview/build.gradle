@@ -1,9 +1,8 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-//apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -19,11 +18,8 @@ android {
     }
 }
 dependencies {
-    api  fileTree(dir: 'libs', include: ['*.jar'])
-
-    api  sdkVar.SupportRecyclerviewV7
-    //implementation sdkVar.Kotlin
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation sdkVar.SupportRecyclerviewV7
 }
 
 

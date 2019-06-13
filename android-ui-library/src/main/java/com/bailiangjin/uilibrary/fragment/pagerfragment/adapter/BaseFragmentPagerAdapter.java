@@ -37,7 +37,6 @@ public abstract class BaseFragmentPagerAdapter<T extends BaseTabPageBean> extend
 
     public void setTabList(List<T> tabList) {
         if (null!=tabList&&!tabList.isEmpty()){
-            this.tabList.clear();
             this.tabList.addAll(tabList);
         }
     }

@@ -6,7 +6,7 @@ package com.bailiangjin.uilibrary.titlebar;
  */
 public class MyMenuItem {
 
-    private int id;
+    private int id=-1;
     private String title;
     private int iconResId;
     private Type type;
@@ -66,6 +66,7 @@ public class MyMenuItem {
     public enum Type {
         SEARCH,
         SHARE,
+        MORE,
         OTHER
     }
 }

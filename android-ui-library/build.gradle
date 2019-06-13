@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+
+
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -30,23 +31,17 @@ android {
 
 
 dependencies {
-    api  fileTree(dir: 'libs', include: ['*.jar'])
-    api  sdkVar.SupportV7
-    api  sdkVar.SupportV4
-    api  sdkVar.SupportDesign
-    api  sdkVar.RxJava
-    api  project(':baseadapter-recyclerview')
-    //api sdkVar.Kotlin
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation sdkVar.SupportV4
+    implementation sdkVar.SupportV7
+    implementation sdkVar.SupportDesign
+
+    api sdkVar.RxJava
+
+    api sdkVar.Glide
+    api sdkVar.GlideTransformations
+
+    api project(':baseadapter-recyclerview')
+
 }
 
-
-//publish {
-//    userOrg = 'geekkevin'//bintray.com用户名
-//    groupId = 'com.geekkevin'//jcenter上的路径
-//    artifactId = 'android-ui-library'//项目名称
-//    publishVersion = '1.0.0'//版本号
-//    desc = 'android develop ui library by bailiangjin'//描述，不重要
-//    website = 'https://github.com/bailiangjin/AndroidRapidDevelopLibrarys/tree/master/android-utils-library'//网站，不重要
-//    licences = ['Apache-2.0']
-//
-//}

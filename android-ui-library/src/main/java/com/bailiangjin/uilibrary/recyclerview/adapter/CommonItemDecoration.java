@@ -12,6 +12,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.bailiangjin.uilibrary.utils.DensityUtils;
+import com.bailiangjin.uilibrary.utils.DensityUtils;
 
 
 /**

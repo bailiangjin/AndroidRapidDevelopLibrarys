@@ -4,25 +4,16 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
-/**
- * UI线程 Handler
- *
- * @author bailiangjin
- *
- * @date 2017/11/9
- */
-public class UiHandler extends Handler {
 
-    /**
-     * 回调接口，消息传递给注册者
-     */
-    private UIHandlerListener uiHandlerListener;
+public class UIHandler extends Handler {
 
-    public UiHandler(Looper looper) {
+    private UIHandlerListener uiHandlerListener;// 回调接口，消息传递给注册者
+
+    public UIHandler(Looper looper) {
         super(looper);
     }
 
-    public UiHandler(Looper looper, UIHandlerListener handleMsgListener) {
+    public UIHandler(Looper looper, UIHandlerListener handleMsgListener) {
         super(looper);
         this.uiHandlerListener = handleMsgListener;
     }
@@ -35,8 +26,7 @@ public class UiHandler extends Handler {
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
         if (uiHandlerListener != null) {
-            // 有消息，就传递
-            uiHandlerListener.handleMessage(msg);
+            uiHandlerListener.handleMessage(msg);// 有消息，就传递
         }
     }
 }

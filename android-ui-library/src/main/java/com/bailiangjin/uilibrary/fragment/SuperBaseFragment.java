@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,16 +13,15 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.activity.SuperBaseActivity;
-import com.bailiangjin.uilibrary.interfaze.AnalyticsInterface;
 import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 
 /**
  * Created by bailiangjin on 2016/10/24.
  */
 
-public abstract class SuperBaseFragment extends Fragment implements AnalyticsInterface{
+public abstract class SuperBaseFragment extends Fragment {
 
 
     protected View rootView;
@@ -31,10 +29,13 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
     private LinearLayout ll_root;
 
     private FrameLayout baseContainer;
+    private FrameLayout emptyLayoutContainer;
 
-    private Toolbar toolbar;
+    protected Toolbar toolbar;
 
     protected TitleBarBuilder titleBarBuilder;
+
+    private LayoutInflater mLayoutInflater;
 
     public SuperBaseFragment() {
     }
@@ -67,7 +68,6 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
     }
 
 
-
     /**
      * 初始化父类UI
      */
@@ -75,6 +75,7 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
         rootView = layoutInflater.inflate(R.layout.fragment_base_xml, container, false);
         ll_root = (LinearLayout) rootView.findViewById(R.id.ll_root);
         baseContainer = (FrameLayout) rootView.findViewById(R.id.baseContainer);
+        emptyLayoutContainer = (FrameLayout) rootView.findViewById(R.id.fl_empty_view_container);
         toolbar = (Toolbar) rootView.findViewById(R.id.common_toolbar);
         View ChildView = layoutInflater.inflate(getLayoutResId(), null);
         baseContainer.addView(ChildView);
@@ -83,16 +84,6 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
 //            mToolbar.setPadding(0, CommonUtils.getStatusBarHeight(getActivity()), 0, 0);
 //        }
         return rootView;
-    }
-
-
-    protected void displayFragment(Fragment fragment,boolean isAddToBackStack){
-        Activity activity=getActivity();
-        if (activity instanceof SuperBaseActivity){
-            ((SuperBaseActivity) activity).displayFragment(fragment,isAddToBackStack);
-        }else {
-            throw new RuntimeException("your activity is not extend SuperBaseActivity so displayFragment can not be used");
-        }
     }
 
     /**
@@ -115,7 +106,6 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
         }
 
     }
-
 
     /**
      * 设置隐藏状态栏高度
@@ -155,10 +145,6 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
     public void onResume() {
         //LogUtils.d("Fragment:::-->>onResume");
         super.onResume();
-        //页面打点
-        if(!TextUtils.isEmpty(getScreenId())){
-            onScreenResume(getScreenId());
-        }
     }
 
     @Override
@@ -192,6 +178,21 @@ public abstract class SuperBaseFragment extends Fragment implements AnalyticsInt
         super.onDetach();
     }
 
+    public void setEmptyLayout(int emptyLayoutResId) {
+        emptyLayoutContainer.removeAllViews();
+        if (emptyLayoutResId > 0) {
+            View emptyView = getLayoutInflater().inflate(emptyLayoutResId, null);
+            emptyLayoutContainer.addView(emptyView);
+        }
+    }
+
+    public void showEmptyLayout(){
+        emptyLayoutContainer.setVisibility(View.VISIBLE);
+    }
+
+    public void hideEmptyLayout(){
+        emptyLayoutContainer.setVisibility(View.GONE);
+    }
 
 
     /**

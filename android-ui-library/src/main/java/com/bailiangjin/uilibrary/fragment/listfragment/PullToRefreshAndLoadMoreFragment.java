@@ -1,13 +1,15 @@
 package com.bailiangjin.uilibrary.fragment.listfragment;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
 
+import com.bailiangjin.uilibrary.rx.CommonSubscribe;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
-import com.bailiangjin.uilibrary.recyclerview.interfaze.ILoadMoreCallback;
-import com.bailiangjin.uilibrary.recyclerview.interfaze.IRefreshCallback;
 import com.bailiangjin.uilibrary.recyclerview.wrapper.LinearRVLoadMoreWrapper;
 import com.zhy.adapter.recyclerview.wrapper.LoadMoreWrapper;
+
+
+import io.reactivex.Observer;
 
 
 /**
@@ -18,11 +20,12 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
 
     SwipeRefreshLayout swipeRefreshLayout;
 
-    protected LinearRVLoadMoreWrapper loadMoreWrapper;
 
-    private boolean isDisableRefresh = false;
+    LinearRVLoadMoreWrapper loadMoreWrapper;
 
+    private static final int DEFAULT_PAGE = 1;
 
+    private int curPage = DEFAULT_PAGE;
     private boolean hasMoreData = true;
 
     @Override
@@ -38,101 +41,71 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
 
     @Override
     protected void initView() {
-        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout= (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefreshLayout);
         super.initView();
     }
 
     @Override
     protected void initRefresh() {
         super.initRefresh();
-        if(null!=getColorSchemeResources()&&getColorSchemeResources().length>0){
-            swipeRefreshLayout.setColorSchemeResources(getColorSchemeResources());
-        }else {
-            swipeRefreshLayout.setColorSchemeResources(R.color.color_scheme_2_1,
-                    R.color.color_scheme_2_2, R.color.color_scheme_2_3,
-                    R.color.color_scheme_2_4);
-        }
-
-        isDisableRefresh = isDisableRefresh();
-
-        if (isDisableRefresh) {
-            return;
-        }
-
-
+        swipeRefreshLayout.setColorSchemeResources(R.color.color_scheme_2_1,
+                R.color.color_scheme_2_2, R.color.color_scheme_2_3,
+                R.color.color_scheme_2_4);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                curPage = DEFAULT_PAGE;
                 //下拉刷新
-                initOrRefreshData(new IRefreshCallback() {
-
+                initOrRefreshData(new CommonSubscribe<Boolean>() {
                     @Override
-                    public void onStart() {
-                        // do nothing
-                    }
-
-                    @Override
-                    public void onSuccess() {
+                    public void onNext(Boolean isSuccess) {
                         hideRefreshProgressBar();
-                        notifyAdapterDataChanged();
-                    }
+                        if(isSuccess){
+                            loadMoreWrapper.notifyDataSetChanged();
+                        }
 
-                    @Override
-                    public void onFailed() {
-                        hideRefreshProgressBar();
-                        shortToast("刷新失败");
                     }
                 });
+
             }
         });
     }
 
 
+
     @Override
     protected void initLoadMore() {
         super.initLoadMore();
+        loadMoreWrapper = new LinearRVLoadMoreWrapper(listRvAdapter, recyclerView);
+        loadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
 
-        if(!isDisableLoadMore()){
-            loadMoreWrapper = new LinearRVLoadMoreWrapper(listRvAdapter, recyclerView);
-            loadMoreWrapper.setOnLoadMoreListener(new LoadMoreWrapper.OnLoadMoreListener() {
-                @Override
-                public void onLoadMoreRequested() {
+                if(hasMoreData){
+                    //加载更多
+                    loadMoreData(new CommonSubscribe<Boolean>() {
 
-                    if (hasMoreData) {
-                        loadMoreData(new ILoadMoreCallback() {
-                            @Override
-                            public void onLoadResult(boolean isHasMoreData) {
-                                setHasMoreData(isHasMoreData);
+                        @Override
+                        public void onNext(Boolean isSuccess) {
+                            if (isSuccess) {
+                                loadMoreWrapper.notifyDataSetChanged();
+                            } else {
+                                hasMoreData=false;
+                                loadMoreWrapper.showNoMoreData();
                             }
-                        });
-                    } else {
-                        setHasMoreData(false);
-                    }
+                        }
+                    });
                 }
-            });
-            realAdapter = loadMoreWrapper;
-            recyclerView.setAdapter(realAdapter);
-        }
 
-    }
-
-    public void setHasMoreData(boolean isHasMoreData) {
-        if (isHasMoreData) {
-            notifyAdapterDataChanged();
-        }
-        this.hasMoreData = isHasMoreData;
-        this.loadMoreWrapper.setHasMoreData(isHasMoreData);
-
+            }
+        });
+        realAdapter=loadMoreWrapper;
     }
 
     @Override
-    protected void setAdapter(RVMultiTypeBaseAdapter adapter) {
+    protected void setAdapter(RecyclerView.Adapter adapter) {
         super.setAdapter(adapter);
         initLoadMore();
-    }
-
-    protected int[] getColorSchemeResources(){
-        return null;
     }
 
     protected void hideRefreshProgressBar() {
@@ -140,25 +113,20 @@ public abstract class PullToRefreshAndLoadMoreFragment extends ListFragment {
     }
 
     protected void disableRefresh() {
-        isDisableRefresh = true;
         swipeRefreshLayout.setEnabled(false);
     }
 
     protected void enableRefresh() {
-        isDisableRefresh = false;
         swipeRefreshLayout.setEnabled(true);
     }
 
 
-    protected abstract boolean isDisableLoadMore();
+    public abstract void initOrRefreshData(Observer<Boolean> subscriber);
+
+    protected abstract void loadMoreData(Observer<Boolean> subscriber);
 
 
-    protected abstract boolean isDisableRefresh();
 
-
-    public abstract void initOrRefreshData(IRefreshCallback refreshCallback);
-
-    protected abstract void loadMoreData(ILoadMoreCallback loadMoreCallback);
 
 
 }

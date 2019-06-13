@@ -9,36 +9,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="10dp"
-        android:visibility="visible"
+        android:paddingBottom="16dp"
         android:paddingLeft="12dp"
-        android:textSize="@dimen/title_tv_size"
         android:paddingRight="12dp"
         android:paddingTop="16dp"
+        style="@style/tv_black_14_333"
+        android:textSize="@dimen/title_tv_size"
         android:title="提示"
-        android:textColor="@color/black" />
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/iv_line_h1"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:visibility="gone"
         android:layout_below="@+id/tv_title"
-        android:background="#CCCCCC" />
+        android:background="#CCCCCC"
+        android:visibility="gone" />
 
 
     <TextView
         android:id="@+id/tv_content"
+        style="@style/tv_black_12_333"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_line_h1"
         android:gravity="left"
-        android:paddingBottom="20dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:paddingTop="10dp"
-        android:title="提示内容"
-        android:textColor="@color/black" />
+        android:title="提示内容" />
 
     <ImageView
         android:id="@+id/iv_line"
@@ -55,14 +55,14 @@
 
         <TextView
             android:id="@+id/tv_cancel"
+            style="@style/tv_black_14_333"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dp"
-            android:title="取消"
-            android:textColor="@color/black" />
+            android:title="取消" />
 
         <ImageView
             android:id="@+id/iv_vertical_line"
@@ -72,14 +72,14 @@
 
         <TextView
             android:id="@+id/tv_confirm"
+            style="@style/tv_black_14_333"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_weight="1"
             android:gravity="center"
             android:padding="10dp"
-            android:title="确认"
-            android:textColor="@color/black" />
+            android:title="确认" />
 
     </LinearLayout>
 

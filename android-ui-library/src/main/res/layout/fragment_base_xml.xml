@@ -12,27 +12,43 @@
         android:id="@+id/common_toolbar"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:visibility="gone"
         android:background="#0000cc"
+        android:visibility="gone"
         toolbar:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         toolbar:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <TextView
             android:id="@+id/tv_title_toolbar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
             style="@style/title_tv_style"
-            android:gravity="center"
-            android:title="标题" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-100dp"
+            android:paddingRight="60dp"
+            android:maxLines="1"
+            android:layout_gravity="left|center_vertical"
+            android:gravity="left"
+            android:text="" />
 
     </android.support.v7.widget.Toolbar>
 
     <FrameLayout
-        android:id="@+id/baseContainer"
+        android:id="@+id/fl_super_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/baseContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" />
+
+
+        <FrameLayout
+            android:id="@+id/fl_empty_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
     </FrameLayout>
 

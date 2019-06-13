@@ -4,5 +4,11 @@
 
     <solid android:color="@color/blue"/>
 
+    <!--<gradient-->
+        <!--android:angle="270"-->
+        <!--android:endColor="#EEEEEE"-->
+        <!--android:startColor="#DDDDDD" />-->
+
+    <corners android:radius="5dip" />
 
 </shape>

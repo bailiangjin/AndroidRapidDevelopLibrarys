@@ -29,6 +29,7 @@ dependencies {
 
     testImplementation  sdkVar.JUnit
     api  sdkVar.ZHYOkHttp
+    api  sdkVar.OkHttp3
 
     implementation sdkVar.Kotlin
 }

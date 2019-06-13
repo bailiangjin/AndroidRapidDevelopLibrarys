@@ -4,26 +4,29 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
+import com.bailiangjin.uilibrary.recyclerview.adapter.ItemDecoration;
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
 import com.bailiangjin.uilibrary.recyclerview.adapter.ItemDecoration;
-import com.bailiangjin.uilibrary.recyclerview.adapter.RVMultiTypeBaseAdapter;
 
 
 /**
  * Created by bailiangjin on 2017/3/22.
  */
 
-public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends SuperBaseFragment {
+public abstract class ListFragment<T extends RecyclerView.Adapter> extends SuperBaseFragment {
 
 
-    protected RecyclerView recyclerView;
+    public RecyclerView recyclerView;
 
     protected T listRvAdapter;
 
     protected RecyclerView.Adapter realAdapter;
 
     protected boolean isDecorationAdded = false;
+
+    protected LinearLayoutManager linearLayoutManager;
 
 
     @Override
@@ -40,7 +43,8 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
     @Override
     protected void initView() {
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
         if (!isDecorationAdded) {
             recyclerView.addItemDecoration(getItemDecoration());
             isDecorationAdded = true;
@@ -83,12 +87,24 @@ public abstract class ListFragment<T extends RVMultiTypeBaseAdapter> extends Sup
 
     }
 
-    protected void setAdapter(T adapter) {
-        listRvAdapter = adapter;
+    /**
+     * 更新单条数据
+     * @param position
+     */
+    protected void notifyItemChanged(int position) {
+        if (null == realAdapter) {
+            return;
+        }
+        realAdapter.notifyItemChanged(position);
     }
 
     protected void setOverScrollMode(int overScrollMode) {
         recyclerView.setOverScrollMode(overScrollMode);
+    }
+
+
+    protected void setAdapter(T adapter) {
+        listRvAdapter = adapter;
     }
 
 

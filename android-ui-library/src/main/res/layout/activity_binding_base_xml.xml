@@ -12,7 +12,7 @@
         android:id="@+id/common_toolbar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#3333cc"
+        android:background="#232323"
         toolbar:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         toolbar:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             style="@style/title_tv_style"
             android:gravity="center"
-            android:title="标题" />
+            android:text="标题" />
 
     </android.support.v7.widget.Toolbar>
 

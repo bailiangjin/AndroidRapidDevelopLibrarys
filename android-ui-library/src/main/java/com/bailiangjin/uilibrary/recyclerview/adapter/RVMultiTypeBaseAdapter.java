@@ -71,4 +71,12 @@ public class RVMultiTypeBaseAdapter<T> extends MultiItemTypeAdapter<T> {
             mDatas.remove(dataItem);
         }
     }
+
+    public int getDataListSize(){
+        if(null==mDatas||mDatas.isEmpty()){
+            return 0;
+        }
+
+        return mDatas.size();
+    }
 }

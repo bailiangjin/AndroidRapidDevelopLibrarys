@@ -6,10 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
+import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseFragmentPagerAdapter;
+import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseTabPageBean;
+import com.bailiangjin.uilibrary.view.SupportNoScrollViewpager;
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
-import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseTabPageBean;
 import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseFragmentPagerAdapter;
+import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseTabPageBean;
 import com.bailiangjin.uilibrary.view.SupportNoScrollViewpager;
 
 
@@ -20,7 +24,7 @@ import com.bailiangjin.uilibrary.view.SupportNoScrollViewpager;
 public abstract class TabPagerFragment<T extends BaseTabPageBean> extends SuperBaseFragment {
     SupportNoScrollViewpager viewPager;
 
-    TabLayout tabLayout;
+    protected TabLayout tabLayout;
 
     Fragment curFragment;
 

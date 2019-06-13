@@ -1,7 +1,7 @@
 package com.bailiangjin.uilibrary.dialog;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -17,7 +17,7 @@ public abstract class SuperAbsDialog {
 
     private Context context;
 
-    protected AlertDialog alertDialog;
+    protected Dialog dialog;
 
     protected View rootView;
 
@@ -27,14 +27,16 @@ public abstract class SuperAbsDialog {
 
     public SuperAbsDialog(Context context) {
         this.context = context;
-        alertDialog = new AlertDialog.Builder(context)
-                .setCancelable(true).create();
-        alertDialog.show();
-        layoutInflater = LayoutInflater.from(alertDialog.getContext());
-        Window window = alertDialog.getWindow();
+        dialog = new Dialog(context);
+        dialog.setCancelable(true);
+        layoutInflater = LayoutInflater.from(dialog.getContext());
+        Window window = dialog.getWindow();
+        window.requestFeature(Window.FEATURE_NO_TITLE);
         rootView = layoutInflater.inflate(getRootLayoutResId(), null);
         bindRootView(rootView);
         window.setContentView(rootView);
+        dialog.show();
+
 
     }
 
@@ -46,7 +48,7 @@ public abstract class SuperAbsDialog {
 
     public SuperAbsDialog setCancelable(boolean isCancelable) {
         this.isCancelable = isCancelable;
-        alertDialog.setCancelable(isCancelable);
+        dialog.setCancelable(isCancelable);
         return this;
     }
 
@@ -56,11 +58,11 @@ public abstract class SuperAbsDialog {
 
 
     public void show() {
-        alertDialog.show();
+        dialog.show();
     }
 
     public void dismiss() {
-        alertDialog.dismiss();
+        dialog.dismiss();
     }
 
 

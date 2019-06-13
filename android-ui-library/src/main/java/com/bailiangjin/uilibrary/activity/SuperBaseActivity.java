@@ -8,13 +8,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 import com.bailiangjin.uilibrary.R;
 import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 import com.bailiangjin.uilibrary.utils.KeyBoardUtils;
@@ -37,7 +37,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
     /**
      * Handler 消息处理
      */
-    protected UiHandler uiHandler = new UiHandler(Looper.getMainLooper());
+    protected UIHandler uiHandler = new UIHandler(Looper.getMainLooper());
 
 
     @Override
@@ -55,15 +55,6 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
         initView(savedInstanceState);
         setStatusBar();
         initData(savedInstanceState);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //页面打点
-        if(!TextUtils.isEmpty(getScreenId())){
-            onScreenResume(getScreenId());
-        }
     }
 
     @Override
@@ -93,7 +84,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
         }
     }
 
-    public void displayFragment(Fragment fragment,boolean isAddToBackStack){
+    protected void displayFragment(Fragment fragment,boolean isAddToBackStack){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
         beginTransaction.add(R.id.baseContainer, fragment);    //通过事务去管理Fragment
@@ -150,7 +141,6 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
         uiHandler.setListener(new UIHandlerListener()
 
         {
-            @Override
             public void handleMessage(Message msg) {
                 handleMsg(msg);// 有消息就提交给子类实现的方法
             }

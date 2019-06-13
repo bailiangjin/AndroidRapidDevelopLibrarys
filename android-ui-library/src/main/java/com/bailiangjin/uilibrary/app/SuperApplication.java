@@ -12,11 +12,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 通用的 Application 父类
- *
- * @author bailiangjin
- *
- * @date 2015/9/8
+ * 作者：bailiangjin  bailiangjin@gmail.com
+ * 创建时间：15/9/8 00:09
  */
 public abstract class SuperApplication extends Application {
 
@@ -33,7 +30,7 @@ public abstract class SuperApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
+        instance =this;
         context = this.getApplicationContext();
         registerActivityListener();
     }
@@ -43,9 +40,12 @@ public abstract class SuperApplication extends Application {
     }
 
 
+
+
     public static Context getContext() {
         return context;
     }
+
 
 
     /**
@@ -53,7 +53,7 @@ public abstract class SuperApplication extends Application {
      */
     public void pushActivity(Activity activity) {
         mActivitys.add(activity);
-        Log.d("SuperApplication", "activityList:size:" + mActivitys.size());
+        Log.d("SuperApplication","activityList:size:"+mActivitys.size());
     }
 
     /**
@@ -61,18 +61,19 @@ public abstract class SuperApplication extends Application {
      */
     public void popActivity(Activity activity) {
         mActivitys.remove(activity);
-        Log.d("SuperApplication", "activityList:size:" + mActivitys.size());
+        Log.d("SuperApplication","activityList:size:"+mActivitys.size());
     }
+
 
 
     /**
      * get current Activity 获取当前Activity（栈中最后一个压入的）
      */
     public static Activity currentActivity() {
-        if (mActivitys == null || mActivitys.isEmpty()) {
+        if (mActivitys == null||mActivitys.isEmpty()) {
             return null;
         }
-        Activity activity = mActivitys.get(mActivitys.size() - 1);
+        Activity activity = mActivitys.get(mActivitys.size()-1);
         return activity;
     }
 
@@ -80,10 +81,10 @@ public abstract class SuperApplication extends Application {
      * 结束当前Activity（栈中最后一个压入的）
      */
     public static void finishCurrentActivity() {
-        if (mActivitys == null || mActivitys.isEmpty()) {
+        if (mActivitys == null||mActivitys.isEmpty()) {
             return;
         }
-        Activity activity = mActivitys.get(mActivitys.size() - 1);
+        Activity activity = mActivitys.get(mActivitys.size()-1);
         finishActivity(activity);
     }
 
@@ -91,7 +92,7 @@ public abstract class SuperApplication extends Application {
      * 结束指定的Activity
      */
     public static void finishActivity(Activity activity) {
-        if (mActivitys == null || mActivitys.isEmpty()) {
+        if (mActivitys == null||mActivitys.isEmpty()) {
             return;
         }
         if (activity != null) {
@@ -105,7 +106,7 @@ public abstract class SuperApplication extends Application {
      * 结束指定类名的Activity
      */
     public static void finishActivity(Class<?> cls) {
-        if (mActivitys == null || mActivitys.isEmpty()) {
+        if (mActivitys == null||mActivitys.isEmpty()) {
             return;
         }
         for (Activity activity : mActivitys) {
@@ -183,7 +184,7 @@ public abstract class SuperApplication extends Application {
      */
     public void appExit() {
         try {
-            Log.e("SuperApplication", "app exit");
+            Log.e("SuperApplication","app exit");
             finishAllActivity();
             onAppExit();
         } catch (Exception e) {
@@ -191,6 +192,7 @@ public abstract class SuperApplication extends Application {
     }
 
     abstract protected void onAppExit();
+
 
 
     private void registerActivityListener() {
@@ -232,10 +234,10 @@ public abstract class SuperApplication extends Application {
 
                 @Override
                 public void onActivityDestroyed(Activity activity) {
-                    if (null == mActivitys || mActivitys.isEmpty()) {
+                    if (null==mActivitys&&mActivitys.isEmpty()){
                         return;
                     }
-                    if (mActivitys.contains(activity)) {
+                    if (mActivitys.contains(activity)){
                         /**
                          *  监听到 Activity销毁事件 将该Activity 从list中移除
                          */

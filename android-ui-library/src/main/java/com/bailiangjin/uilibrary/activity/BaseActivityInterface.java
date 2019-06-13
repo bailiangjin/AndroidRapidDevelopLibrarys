@@ -1,11 +1,9 @@
 package com.bailiangjin.uilibrary.activity;
 
-import com.bailiangjin.uilibrary.interfaze.AnalyticsInterface;
-
 /**
  * Created by bailiangjin on 16/9/8.
  */
-public interface BaseActivityInterface extends AnalyticsInterface{
+public interface BaseActivityInterface {
 
     /**
      * show toast by string

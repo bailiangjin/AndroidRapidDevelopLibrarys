@@ -16,6 +16,7 @@ ext {
     rxjavaVersion = '2+'
     rxandroidVersion = '2.0.1'
     okhttpVersion = '2.6.0'
+    okhttp3Version = '3.4.2'
     eventbusVersion = '3.0.0'
     junitVersion = '4.12'
     butterknifeVersion = '8.8.1'
@@ -49,6 +50,7 @@ ext {
             RxJava               : "io.reactivex.rxjava2:rxjava:$rxjavaVersion",
             UniversalImageLoader : "com.nostra13.universalimageloader:universal-image-loader:1.9.5",
             OkHttp               : "com.squareup.okhttp:okhttp:$okhttpVersion",
+            OkHttp3                    : "com.squareup.okhttp3:okhttp:$okhttp3Version",
             EventBus             : "org.greenrobot:eventbus:$eventbusVersion",
             GoogleGmsAnalytics   : "com.google.android.gms:play-services-analytics:$rootProject.googleGmsPlayServicesAnalyticsVersion",
             Guava                : "com.google.guava:guava:23.3-android",

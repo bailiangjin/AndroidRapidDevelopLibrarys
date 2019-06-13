@@ -33,19 +33,19 @@
             android:clickable="false"
             android:focusable="false"
             android:gravity="center_vertical"
-            android:title="正在加载中..."
+            android:text="正在加载中..."
             android:textColor="#333333"
             android:textSize="14sp" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_no_more_data"
+        android:id="@+id/no_more_data"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:focusable="false"
         android:gravity="center"
-        android:title="暂无更多数据"
+        android:text="暂无更多数据"
         android:textColor="#666666"
         android:textSize="14sp"
         android:visibility="gone" />

@@ -63,7 +63,7 @@
             android:layout_height="40dp"
             android:background="@android:color/transparent"
             android:textColor="@color/blue"
-            android:title="取消"
+            android:text="取消"
             android:visibility="gone"
             android:textSize="20dp" />
 
