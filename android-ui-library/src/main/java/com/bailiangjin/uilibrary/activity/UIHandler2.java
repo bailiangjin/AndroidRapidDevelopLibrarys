@@ -5,15 +5,15 @@ import android.os.Looper;
 import android.os.Message;
 
 
-public class UIHandler extends Handler {
+public class UIHandler2 extends Handler {
 
     private UIHandlerListener uiHandlerListener;// 回调接口，消息传递给注册者
 
-    public UIHandler(Looper looper) {
+    public UIHandler2(Looper looper) {
         super(looper);
     }
 
-    public UIHandler(Looper looper, UIHandlerListener handleMsgListener) {
+    public UIHandler2(Looper looper, UIHandlerListener handleMsgListener) {
         super(looper);
         this.uiHandlerListener = handleMsgListener;
     }

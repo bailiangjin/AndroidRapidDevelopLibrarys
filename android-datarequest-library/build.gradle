@@ -28,7 +28,7 @@ dependencies {
 
     implementation sdkVar.SupportV7
 
-    api sdkVar.Okhttp3
+    api sdkVar.OkHttp3
 //
     api sdkVar.ZHYOkHttp
 

@@ -16,7 +16,6 @@ import android.widget.LinearLayout;
 
 import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.titlebar.TitleBarBuilder;
 import com.bailiangjin.uilibrary.utils.KeyBoardUtils;
 
 
@@ -37,7 +36,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity implements Bas
     /**
      * Handler 消息处理
      */
-    protected UIHandler uiHandler = new UIHandler(Looper.getMainLooper());
+    protected UIHandler2 uiHandler = new UIHandler2(Looper.getMainLooper());
 
 
     @Override
