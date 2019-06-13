@@ -1,11 +1,11 @@
 package com.bailiangjin.utilslibrary.utils.file;
 
 
-import com.bailiangjin.utilslibrary.utils.app.AppUtils;
 import com.bailiangjin.utilslibrary.constant.enums.SPKeyEnum;
+import com.bailiangjin.utilslibrary.utils.SPUtils;
+import com.bailiangjin.utilslibrary.utils.app.AppUtils;
 import com.bailiangjin.javabaselib.utils.FileUtils;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
-import com.bailiangjin.utilslibrary.utils.SPUtils;
 
 /**
  * Author:  liangjin.bai
@@ -83,7 +83,7 @@ public class CleanUtils {
 //     * @return
 //     */
 //    public static boolean cleanWebFileDir() {
-//        String webFileCachePath = FilePathUtils.getWebFileCachePath();
+//        String webFileCachePath = FilePathUtil.getWebFileCachePath();
 //        return FileUtils.deleteFile(webFileCachePath);
 //    }
 
@@ -94,7 +94,7 @@ public class CleanUtils {
      * @return
      */
     public static boolean cleanAppRootFilePath() {
-        String appFileRootPath = FilePathUtils.getAppPath();
+        String appFileRootPath = FilePathUtil.getAppPath();
         return FileUtils.deleteFile(appFileRootPath);
     }
 

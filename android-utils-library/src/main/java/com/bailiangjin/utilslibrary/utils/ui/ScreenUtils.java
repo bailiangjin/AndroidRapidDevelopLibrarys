@@ -10,8 +10,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.bailiangjin.utilslibrary.api.UtilsLibrary;
 import com.bailiangjin.utilslibrary.utils.device.DeviceInfoUtils;
+import com.bailiangjin.utilslibrary.api.UtilsLibrary;
 
 /**
  * 获得屏幕相关的辅助类

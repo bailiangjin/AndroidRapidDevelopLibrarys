@@ -16,11 +16,11 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings.Secure;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
 
-import com.bailiangjin.utilslibrary.R;
 import com.bailiangjin.utilslibrary.api.UtilsLibrary;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
 import com.bailiangjin.utilslibrary.utils.ToastUtils;
@@ -41,7 +41,7 @@ import java.util.List;
  * @author bailiangjin
  */
 public class AppUtils {
-    public static final String TAG = AppUtils.class.getSimpleName();
+
     /**
      * 再点一次退出应用 上次点击时间
      */
@@ -58,7 +58,7 @@ public class AppUtils {
         final long gapTime = 2000;
         long currentTime = System.currentTimeMillis();
         if (currentTime - lastTouchTime > gapTime) {
-            ToastUtils.shortToast(R.string.one_more_click_exit);
+            ToastUtils.shortToast(com.bailiangjin.utilslibrary.R.string.one_more_click_exit);
             lastTouchTime = currentTime;
             return true;
         } else {
@@ -86,6 +86,31 @@ public class AppUtils {
                 .equalsIgnoreCase(
                         ((ActivityManager.RunningTaskInfo) localList.get(0)).baseActivity
                                 .getPackageName());
+    }
+
+    public static boolean isMainProcess(Context context) {
+        if (null == context) {
+            return false;
+        }
+
+        return TextUtils.equals(context.getApplicationContext().getPackageName(), getCurrentProcessName(context));
+
+    }
+
+    private static String getCurrentProcessName(Context context) {
+        if (null == context) {
+            return null;
+        }
+        int pid = android.os.Process.myPid();
+        String processName = "";
+        ActivityManager activityManager = (ActivityManager) context.getApplicationContext().getSystemService
+                (Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningAppProcessInfo process : activityManager.getRunningAppProcesses()) {
+            if (process.pid == pid) {
+                processName = process.processName;
+            }
+        }
+        return processName;
     }
 
     /**
@@ -193,9 +218,10 @@ public class AppUtils {
     /**
      * 获取当前应用名
      *
+     * @param packageName
      * @return
      */
-    public static String getCurrentAppName() {
+    public static String getCurrentAppName(String packageName) {
         return getAppName(getContext().getPackageName());
     }
 
@@ -321,23 +347,6 @@ public class AppUtils {
             context.startActivity(intent);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-
-    }
-
-    public static boolean autoInstallApk(Uri uri) {
-        Context context = getContext();
-        try {
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.setDataAndType(uri,
-                    "application/vnd.android.package-archive");
-            context.startActivity(intent);
-            return true;
-        } catch (Exception e) {
-            Log.e(TAG,e.getMessage());
             e.printStackTrace();
             return false;
         }

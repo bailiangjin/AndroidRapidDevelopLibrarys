@@ -84,12 +84,10 @@ public class LinkMovementMethodExt extends LinkMovementMethod {
     }
 
 
-    @Override
     public boolean canSelectArbitrarily() {
         return true;
     }
 
-    @Override
     public boolean onKeyUp(TextView widget, Spannable buffer, int keyCode,
                            KeyEvent event) {
         return false;

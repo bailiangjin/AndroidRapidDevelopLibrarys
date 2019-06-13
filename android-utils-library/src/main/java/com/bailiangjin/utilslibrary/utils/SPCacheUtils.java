@@ -14,7 +14,7 @@ public class SPCacheUtils {
 //    /**
 //     * 去医院界面信息缓存 SP Key
 //     */
-//    private static final String HOSPITAL_CACHE_KEY = "gotoHospitalCache";
+//    public static final String HOSPITAL_CACHE_KEY = "gotoHospitalCache";
 
 
 //    /**
@@ -39,7 +39,7 @@ public class SPCacheUtils {
      * @param obj Object 对象 ps:支持Gson序列化的对象
      */
     public static void cacheObj(String key, Object obj) {
-        SPUtils.putString(key, GsonUtils.INSTANCE.toJson(obj));
+        SPUtils.putString(key, GsonUtils.getInstance().toJson(obj));
     }
 
 
@@ -53,7 +53,7 @@ public class SPCacheUtils {
     public static <T> T getObj(String key, Class<T> classOfT) {
         String json = (String) SPUtils.getString(key);//TODO:备注:默认数据传null 会使得返回结果为null
         try {
-            Object object = GsonUtils.INSTANCE.getGson().fromJson(json, (Type) classOfT);
+            Object object = GsonUtils.getInstance().getGson().fromJson(json, (Type) classOfT);
             return Primitives.wrap(classOfT).cast(object);
         } catch (Exception e) {
             e.printStackTrace();

@@ -2,11 +2,9 @@ package com.bailiangjin.utilslibrary.utils.file;
 
 import android.content.Context;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 
 /**
  * 作者：bailiangjin  bailiangjin@gmail.com
@@ -47,22 +45,5 @@ public class AssetUtils {
             return false;
         }
         return true;
-    }
-
-
-    public static String readAssetsFileAsString(Context context, String fileName) {
-        try {
-            InputStreamReader inputReader = new InputStreamReader(context.getResources().getAssets().open(fileName));
-            BufferedReader br = new BufferedReader(inputReader);
-            String line = "";
-            StringBuffer sb = new StringBuffer();
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
-            }
-            return sb.toString();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

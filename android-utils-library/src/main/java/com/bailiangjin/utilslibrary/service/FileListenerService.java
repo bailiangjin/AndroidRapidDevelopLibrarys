@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 
 import com.bailiangjin.utilslibrary.interfaze.listener.IFileListener;
 import com.bailiangjin.utilslibrary.utils.file.MultiFileObserver;
-import com.bailiangjin.utilslibrary.utils.file.FilePathUtils;
+import com.bailiangjin.utilslibrary.utils.file.FilePathUtil;
 import com.bailiangjin.utilslibrary.utils.LogUtils;
 
 /**
@@ -29,13 +29,13 @@ public class FileListenerService extends SuperBaseService {
         super.onCreate();
 
 //        if (null == sdCardListener) {
-//            sdCardListener = new SDCardListener(FilePathUtils.getAppPath() + "/");
+//            sdCardListener = new SDCardListener(FilePathUtil.getAppPath() + "/");
 //            sdCardListener.startWatching(); //开始监听
 //            LogUtils.e("开始文件监听:service");
 //        }
 
         if(null == multiFileObserver) {
-            multiFileObserver = new MultiFileObserver(FilePathUtils.getSdcardPath() + "/", new IFileListener() {
+            multiFileObserver = new MultiFileObserver(FilePathUtil.getSdcardPath() + "/", new IFileListener() {
                 @Override
                 public void onCreate(String filePath) {
                     LogUtils.e("创建:"+filePath);

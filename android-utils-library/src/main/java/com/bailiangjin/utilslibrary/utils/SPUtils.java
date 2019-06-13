@@ -2,14 +2,12 @@ package com.bailiangjin.utilslibrary.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.text.TextUtils;
 
 import com.bailiangjin.utilslibrary.api.UtilsLibrary;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-import java.util.Set;
 
 public class SPUtils {
     /**
@@ -94,9 +92,6 @@ public class SPUtils {
      * @return
      */
     public static String getString(String key) {
-        if (TextUtils.isEmpty(key)){
-            return null;
-        }
         SharedPreferences sp = getSp();
         return sp.getString(key, null);
     }

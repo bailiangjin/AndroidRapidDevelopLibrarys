@@ -1,9 +1,7 @@
 package com.bailiangjin.utilslibrary.api;
 
-import android.app.Application;
 import android.content.Context;
 
-import com.bailiangjin.utilslibrary.utils.ui.ImageLoadUtils;
 
 /**
  * Created by bailiangjin on 2017/4/10.
@@ -11,24 +9,24 @@ import com.bailiangjin.utilslibrary.utils.ui.ImageLoadUtils;
 
 public class UtilsLibrary {
 
-    public static UtilsLibraryConfig utilsLibraryConfig;
+    public static Context appContext;
 
-    public static void init(Application application) {
-        utilsLibraryConfig = new UtilsLibraryConfig(application);
-        onInit(application);
+    public static void init(Context context) {
+        appContext = context;
+        onInit(context);
+    }
+
+    private static void onInit(Context context) {
+
     }
 
     public static Context getAppContext(){
         checkInit();
-        return utilsLibraryConfig.getApplication().getApplicationContext();
-    }
-
-    private static void onInit(Application application) {
-        ImageLoadUtils.INSTANCE.init(application);
+        return appContext;
     }
 
     private static void checkInit() {
-        if(null== utilsLibraryConfig){
+        if(null== appContext){
             throw new RuntimeException("please call UtilsLibrary.init() first");
         }
     }
