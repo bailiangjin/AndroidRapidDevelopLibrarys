@@ -67,7 +67,7 @@ ext {
             UniversalImageLoader    : "com.nostra13.universalimageloader:universal-image-loader:1.9.5",
             OkHttp                  : "com.squareup.okhttp:okhttp:$okhttpVersion",
 
-            OkHttp3                    : "com.squareup.okhttp3:okhttp:$okhttp3Version",
+            Okhttp3                    : "com.squareup.okhttp3:okhttp:$okhttp3Version",
             Okhttp3LoggingInterceptor     : "com.squareup.okhttp3:logging-interceptor:$okhttp3Version",
             EventBus                : "org.greenrobot:eventbus:$eventbusVersion",
             GoogleGmsAnalytics      : "com.google.android.gms:play-services-analytics:$rootProject.googleGmsPlayServicesAnalyticsVersion",
