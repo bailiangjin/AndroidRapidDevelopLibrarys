@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
 //apply plugin: 'com.novoda.bintray-release'//添加
 
 android {
@@ -25,24 +24,22 @@ android {
         }
     }
 
-//    dataBinding {
-//        enabled = true
-//    }
+
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 
 
 dependencies {
-    api sdkVar.UniversalImageLoader
-    api sdkVar.OkHttp
-    api sdkVar.EventBus
-
     api files('libs/AJavaBaseLib.jar')
     api project(':android-ui-library')
-    //implementation sdkVar.Kotlin
-
-
+    api sdkVar.EventBus
 }
+
+
 
 ////dependsOn 可根据实际需要增加或更改
 //task buildJar(dependsOn: ['compileReleaseJava'], type: Jar) {

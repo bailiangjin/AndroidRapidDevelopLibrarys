@@ -67,7 +67,6 @@ public class LinearRVLoadMoreWrapper<T> extends LoadMoreWrapper<T> {
         mInnerAdapter.onBindViewHolder(holder, position);
     }
 
-
     public void showLoadMore() {
         loadMoreAndNoMoreDataCallback.onShowLoadMore(mLoadMoreView);
     }

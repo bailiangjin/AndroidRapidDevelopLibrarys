@@ -26,6 +26,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation sdkVar.SupportV7
-    implementation sdkVar.SupportConstraint
+    implementation sdkVar.SupportConstraintLayout
     testImplementation sdkVar.JUnit
 }
