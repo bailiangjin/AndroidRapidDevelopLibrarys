@@ -1,7 +1,7 @@
 package com.bailiangjin.uilibrary.widget;
 
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;

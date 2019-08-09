@@ -1,14 +1,12 @@
 package com.bailiangjin.uilibrary.fragment.listfragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
 import com.bailiangjin.uilibrary.recyclerview.adapter.ItemDecoration;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
-import com.bailiangjin.uilibrary.recyclerview.adapter.ItemDecoration;
 
 
 /**

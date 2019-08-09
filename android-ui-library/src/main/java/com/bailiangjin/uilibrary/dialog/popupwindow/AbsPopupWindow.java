@@ -27,12 +27,12 @@ public abstract class AbsPopupWindow {
         mContext = context;
         mPopupWindow = new PopupWindow(context);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
-        mPopupWindow.setWidth(WindowManager.LayoutParams.FILL_PARENT);
-        mPopupWindow.setHeight(WindowManager.LayoutParams.FILL_PARENT);
+        mPopupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
+        mPopupWindow.setHeight(WindowManager.LayoutParams.MATCH_PARENT);
         mPopupWindow.setTouchable(true);
         mPopupWindow.setFocusable(true);
         mPopupWindow.setOutsideTouchable(true);
-//        mPopupWindow.setAnimationStyle(R.style.AnimBottom);
+        //mPopupWindow.setAnimationStyle(R.style.AnimBottom);
         mView=getDialogView();
         mPopupWindow.setContentView(mView);
         initView(mView);
@@ -72,6 +72,9 @@ public abstract class AbsPopupWindow {
         mPopupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
     }
 
+    public Context getContext() {
+        return mContext;
+    }
 
     private View getDialogView(){
         View dialogView = LayoutInflater.from(mContext).inflate(getLayoutResId(), null);

@@ -20,7 +20,11 @@ android {
 }
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation sdkVar.SupportRecyclerviewV7
+
+    implementation sdkVar.AndroidAppcompat
+    implementation sdkVar.AndroidConstraintLayout
+    implementation sdkVar.AndroidAnnotation
+    implementation sdkVar.GoogleAndroidMaterial
 }
 
 

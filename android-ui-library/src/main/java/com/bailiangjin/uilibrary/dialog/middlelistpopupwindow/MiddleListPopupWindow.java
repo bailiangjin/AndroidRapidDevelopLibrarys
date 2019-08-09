@@ -1,16 +1,14 @@
 package com.bailiangjin.uilibrary.dialog.middlelistpopupwindow;
 
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
 import com.bailiangjin.uilibrary.dialog.bottompopupdialog.adapter.DialogBtnAdapter;
 import com.bailiangjin.uilibrary.dialog.bottompopupdialog.listener.BtnClickListener;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.dialog.bottompopupdialog.adapter.DialogBtnAdapter;
-import com.bailiangjin.uilibrary.dialog.bottompopupdialog.listener.BtnClickListener;
 import com.bailiangjin.uilibrary.dialog.bottompopupdialog.model.DialogBtnItem;
 import com.bailiangjin.uilibrary.dialog.popupwindow.AbsPopupWindow;
 

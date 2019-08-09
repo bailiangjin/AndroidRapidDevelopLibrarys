@@ -8,7 +8,7 @@
     android:fitsSystemWindows="false"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/common_toolbar"
         android:layout_width="match_parent"
         android:layout_height="52dp"
@@ -29,7 +29,7 @@
             android:gravity="left"
             android:text="" />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/fl_super_container"

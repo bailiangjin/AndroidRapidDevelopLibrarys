@@ -6,7 +6,6 @@ import com.bailiangjin.uilibrary.app.SuperApplication;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.app.SuperApplication;
 
 import java.io.File;
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;

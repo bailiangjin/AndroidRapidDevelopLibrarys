@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
     buildTypes {
@@ -24,12 +24,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     testImplementation sdkVar.JUnit
-    androidTestImplementation sdkVar.SupportEspressoCore
+    androidTestImplementation sdkVar.TestEspressoCore
 
-    implementation sdkVar.SupportV7
+    implementation sdkVar.AndroidAppcompat
 
     api sdkVar.OkHttp3
-//
     api sdkVar.ZHYOkHttp
 
 }

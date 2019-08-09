@@ -3,7 +3,7 @@ package com.bailiangjin.utilslibrary.utils.device;
 import android.content.Context;
 import android.nfc.NfcManager;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.bailiangjin.utilslibrary.utils.app.AppUtils;
 import com.bailiangjin.utilslibrary.utils.LogUtils;

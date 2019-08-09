@@ -1,9 +1,9 @@
 package com.bailiangjin.uilibrary.fragment.pagerfragment.fragment;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import com.google.android.material.tabs.TabLayout;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import android.view.View;
 
 import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
@@ -11,10 +11,6 @@ import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseFragmentPage
 import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseTabPageBean;
 import com.bailiangjin.uilibrary.view.SupportNoScrollViewpager;
 import com.bailiangjin.uilibrary.R;
-import com.bailiangjin.uilibrary.fragment.SuperBaseFragment;
-import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseFragmentPagerAdapter;
-import com.bailiangjin.uilibrary.fragment.pagerfragment.adapter.BaseTabPageBean;
-import com.bailiangjin.uilibrary.view.SupportNoScrollViewpager;
 
 
 /**

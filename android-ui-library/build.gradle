@@ -32,9 +32,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation sdkVar.SupportV4
-    implementation sdkVar.SupportV7
-    implementation sdkVar.SupportDesign
+    implementation sdkVar.AndroidAppcompat
+    implementation sdkVar.AndroidConstraintLayout
+    implementation sdkVar.AndroidAnnotation
+    implementation sdkVar.GoogleAndroidMaterial
 
     api sdkVar.RxJava
 

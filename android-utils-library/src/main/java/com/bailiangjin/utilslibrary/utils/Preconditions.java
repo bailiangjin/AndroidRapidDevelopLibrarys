@@ -5,7 +5,7 @@
 
 package com.bailiangjin.utilslibrary.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 
 public final class Preconditions {

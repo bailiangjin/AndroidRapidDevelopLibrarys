@@ -2,7 +2,7 @@ package com.bailiangjin.uilibrary.titlebar;
 
 import android.app.Activity;
 import android.content.res.Resources;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;

@@ -1,7 +1,7 @@
 package com.bailiangjin.uilibrary.widget;
 
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -35,7 +35,7 @@ public class PNDialog {
         this.cancelable = builder.cancelable;
         this.noTitle = builder.noTitle;
 
-        alertDialog = new android.support.v7.app.AlertDialog.Builder(mContext)
+        alertDialog = new androidx.appcompat.app.AlertDialog.Builder(mContext)
                 .setCancelable(cancelable).create();
         alertDialog.show();
         Window window = alertDialog.getWindow();

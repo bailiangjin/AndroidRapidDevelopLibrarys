@@ -4,21 +4,20 @@ ext {
 
     compileSdkVersion = 28
     buildToolsVersion = '28.0.0'
-    minSdkVersion = 18
+    minSdkVersion = 16
     targetSdkVersion = 28
 
-    kotlin_version = '1.3.10'
+    kotlin_version = '1.3.0'
 
     // App dependencies version
     // 已统一
-    supportLibraryVersion = '27+'
     rxjavaVersion = '2+'
     rxandroidVersion = '2.0.1'
     okhttpVersion = '2.6.0'
     okhttp3Version = '3.4.2'
     eventbusVersion = '3.0.0'
     junitVersion = '4.12'
-    butterknifeVersion = '8.8.1'
+    butterknifeVersion = '10.1.0'
     googleGmsPlayServicesAnalyticsVersion = '9.2.0'
     guavaVersion = '18.0'
 
@@ -39,72 +38,74 @@ ext {
 
     sdkVar = [
 
-            SupportV7               : "com.android.support:appcompat-v7:$supportLibraryVersion",
-            SupportV4               : "com.android.support:support-v4:$supportLibraryVersion",
-            SupportRecyclerviewV7   : "com.android.support:recyclerview-v7:$supportLibraryVersion",
-            SupportDesign           : "com.android.support:design:$supportLibraryVersion",
-            SupportConstraintLayout : "com.android.support.constraint:constraint-layout:1.0.2",
-            SupportEspressoCore     : "com.android.support.test.espresso:espresso-core:3.0.1",
-            SupportRunner           : "com.android.support.test:runner:1.0.1",
-            JUnit                   : "junit:junit:$junitVersion",
+            // Android
+            AndroidAppcompat              : "androidx.appcompat:appcompat:1.0.2",
+            AndroidConstraintLayout       : "androidx.constraintlayout:constraintlayout:1.1.3",
+            AndroidAnnotation             : "androidx.annotation:annotation:1.0.0",
+            // Google Android
+            GoogleAndroidMaterial         : "com.google.android.material:material:1.0.0",
 
-            Kotlin                  : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
+            TestEspressoCore      : 'androidx.test.espresso:espresso-core:3.1.0',
+            TestRunner            : 'androidx.test:runner:1.1.0',
+            JUnit                    : "junit:junit:$junitVersion",
+
+            Kotlin                   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
 
             // Lifecycle components
-            LifecycleExtensions: "android.arch.lifecycle:extensions:$archLifecycleVersion",
-            LifecycleCompiler: "android.arch.lifecycle:compiler:$archLifecycleVersion",
+            LifecycleExtensions      : 'androidx.lifecycle:lifecycle-extensions:2.0.0',
+            LifecycleCompiler        : 'androidx.lifecycle:lifecycle-compiler:2.0.0',
 
-            RoomRuntime             : "android.arch.persistence.room:runtime:$roomVersion",
-            RoomCompiler            : "android.arch.persistence.room:compiler:$roomVersion",
-            RoomTesting             : "android.arch.persistence.room:testing:$roomVersion",
+            RoomRuntime              : 'androidx.room:room-runtime:2.0.0',
+            RoomCompiler             : 'androidx.room:room-compiler:2.0.0',
+            RoomTesting              : 'androidx.room:room-testing:2.0.0',
 
             //第三方库
 
             // open formal
-            RxJava                  : "io.reactivex.rxjava2:rxjava:$rxjavaVersion",
-            RxAndroid               : "io.reactivex.rxjava2:rxandroid:$rxandroidVersion",
+            RxJava                   : "io.reactivex.rxjava2:rxjava:$rxjavaVersion",
+            RxAndroid                : "io.reactivex.rxjava2:rxandroid:$rxandroidVersion",
 
-            UniversalImageLoader    : "com.nostra13.universalimageloader:universal-image-loader:1.9.5",
-            OkHttp                  : "com.squareup.okhttp:okhttp:$okhttpVersion",
+            UniversalImageLoader     : "com.nostra13.universalimageloader:universal-image-loader:1.9.5",
 
-            OkHttp3                    : "com.squareup.okhttp3:okhttp:$okhttp3Version",
-            Okhttp3LoggingInterceptor     : "com.squareup.okhttp3:logging-interceptor:$okhttp3Version",
-            EventBus                : "org.greenrobot:eventbus:$eventbusVersion",
-            GoogleGmsAnalytics      : "com.google.android.gms:play-services-analytics:$rootProject.googleGmsPlayServicesAnalyticsVersion",
-            Guava                   : "com.google.guava:guava:23.3-android",
+            OkHttp3                  : "com.squareup.okhttp3:okhttp:$okhttp3Version",
+            OkHttp3LoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$okhttp3Version",
+            OkHttp                   : "com.squareup.okhttp:okhttp:$okhttpVersion",
+            EventBus                 : "org.greenrobot:eventbus:$eventbusVersion",
+            GoogleGmsAnalytics       : "com.google.android.gms:play-services-analytics:$rootProject.googleGmsPlayServicesAnalyticsVersion",
+            Guava                    : "com.google.guava:guava:23.3-android",
 
-            Butterknife             : "com.jakewharton:butterknife:$rootProject.butterknifeVersion",
-            ButterknifeAnnotation   : "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion",
+            Butterknife              : "com.jakewharton:butterknife:$rootProject.butterknifeVersion",
+            ButterknifeAnnotation    : "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion",
 
             // commercial
 
-            WeChatWithoutMta        : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
-            Bugtags                 : "com.bugtags.library:bugtags-lib:latest.integration",
+            WeChatWithoutMta         : "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+",
+            Bugtags                  : "com.bugtags.library:bugtags-lib:latest.integration",
 
             // open test
-            ZHYOkHttp               : "com.zhy:okhttputils:2.6.2",
-            GitHangStatusBar        : "com.githang:status-bar-compat:0.5.2",
-            OrhanobutLogger         : "com.orhanobut:logger:2.1.1",
-            ElvishewXlog            : "com.elvishew:xlog:1.4.0",
+            ZHYOkHttp                : "com.zhy:okhttputils:2.6.2",
+            GitHangStatusBar         : "com.githang:status-bar-compat:0.5.2",
+            OrhanobutLogger          : "com.orhanobut:logger:2.1.1",
+            ElvishewXlog             : "com.elvishew:xlog:1.4.0",
 
             //retrofit 依赖
-            Retrofit2               : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            Retrofit2                : "com.squareup.retrofit2:retrofit:$retrofitVersion",
             //retrofit String解析依赖
-            RetrofitConverterScalars: "com.squareup.retrofit2:converter-scalars:$retrofitVersion",
+            RetrofitConverterScalars : "com.squareup.retrofit2:converter-scalars:$retrofitVersion",
             //retrofit gson解析依赖
-            RetrofitConverterGson   : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            FastJson                : "com.alibaba:fastjson:1.2.32",
-            Gson                    : "com.google.code.gson:gson:2.8.0",
-            Multidex                : "com.android.support:multidex:1.0.1",
+            RetrofitConverterGson    : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            FastJson                 : "com.alibaba:fastjson:1.2.32",
+            Gson                     : "com.google.code.gson:gson:2.8.0",
+            Multidex                 : "com.android.support:multidex:1.0.1",
 
-            Glide                   : "com.github.bumptech.glide:glide:4.5.0",
-            GlideCompiler           : "com.github.bumptech.glide:compiler:4.5.0",
-            GlideTransformations           : "jp.wasabeef:glide-transformations:2.0.0",
-            W446108264AndroidEmoji  : "com.github.w446108264:AndroidEmoji:1.1",
+            Glide                    : "com.github.bumptech.glide:glide:4.5.0",
+            GlideCompiler            : "com.github.bumptech.glide:compiler:4.5.0",
+            GlideTransformations     : "jp.wasabeef:glide-transformations:2.0.0",
+            W446108264AndroidEmoji   : "com.github.w446108264:AndroidEmoji:1.1",
 
             //dagger2
-            "dagger"                : "com.google.dagger:dagger:2.7",
-            "dagger_compiler"       : "com.google.dagger:dagger-compiler:2.7"
+            "dagger"                 : "com.google.dagger:dagger:2.7",
+            "dagger_compiler"        : "com.google.dagger:dagger-compiler:2.7"
 
     ]
 

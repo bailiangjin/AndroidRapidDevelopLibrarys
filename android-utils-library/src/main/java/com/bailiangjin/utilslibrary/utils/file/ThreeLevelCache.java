@@ -1,6 +1,6 @@
 package com.bailiangjin.utilslibrary.utils.file;
 
-import android.support.v4.util.LruCache;
+import androidx.collection.LruCache;
 
 import com.bailiangjin.javabaselib.utils.StringUtils;
 
