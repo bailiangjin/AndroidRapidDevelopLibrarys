@@ -8,22 +8,14 @@ import android.os.Build;
 import com.bailiangjin.utilslibrary.utils.app.AppUtils;
 
 /**
- * Created by bailiangjin on 16/9/23.
+ * 蓝牙相关工具类
  */
-
 public class BluetoothUtils {
 
     public static boolean isBluetoothEnabled() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            BluetoothManager bluetoothManager = (BluetoothManager) AppUtils.getContext()
-                    .getSystemService(Context.BLUETOOTH_SERVICE);
-            return bluetoothManager.getAdapter().isEnabled();
-        } else {
-            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            return bluetoothAdapter.isEnabled();
-
-        }
+        BluetoothAdapter bluetoothAdapter = getBluetoothAdapter();
+        return null != bluetoothAdapter && bluetoothAdapter.isEnabled();
     }
 
     public static boolean toggleBluetooth(boolean isOn) {
@@ -37,27 +29,27 @@ public class BluetoothUtils {
 
     public static boolean enableBluetooth() {
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            BluetoothManager bluetoothManager = (BluetoothManager) AppUtils.getContext()
-                    .getSystemService(Context.BLUETOOTH_SERVICE);
-            return bluetoothManager.getAdapter().enable();
-        } else {
-            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            return bluetoothAdapter.enable();
-        }
+        BluetoothAdapter bluetoothAdapter = getBluetoothAdapter();
+        return bluetoothAdapter.enable();
     }
 
     public static boolean disableBluetooth() {
 
+        BluetoothAdapter bluetoothAdapter = getBluetoothAdapter();
+        return bluetoothAdapter.disable();
+    }
+
+    private static BluetoothAdapter getBluetoothAdapter() {
+        BluetoothAdapter bluetoothAdapter;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
             BluetoothManager bluetoothManager = (BluetoothManager) AppUtils.getContext()
                     .getSystemService(Context.BLUETOOTH_SERVICE);
-            return bluetoothManager.getAdapter().disable();
-        } else {
-            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-            return bluetoothAdapter.disable();
-        }
-    }
+            bluetoothAdapter = bluetoothManager.getAdapter();
 
+        } else {
+            bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        }
+        return bluetoothAdapter;
+    }
 
 }
