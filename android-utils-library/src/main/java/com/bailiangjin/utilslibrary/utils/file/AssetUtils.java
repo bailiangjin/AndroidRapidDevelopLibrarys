@@ -2,9 +2,12 @@ package com.bailiangjin.utilslibrary.utils.file;
 
 import android.content.Context;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * 作者：bailiangjin  bailiangjin@gmail.com
@@ -46,4 +49,37 @@ public class AssetUtils {
         }
         return true;
     }
+
+
+    /**
+     * 将assets 目录下 文件 读取为字符串
+     *
+     * @param context
+     * @param fileName
+     * @return
+     * @throws Exception
+     */
+    public static String readStringFromAssets(Context context, String fileName) {
+
+        String result = "";
+        try {
+            InputStream is = null;
+            is = context.getResources().getAssets().open(fileName);
+            InputStreamReader reader = new InputStreamReader(is);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            StringBuffer buffer = new StringBuffer("");
+            String str;
+            while ((str = bufferedReader.readLine()) != null) {
+                buffer.append(str).append("\n");
+            }
+
+            result = buffer.toString().trim();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
 }
