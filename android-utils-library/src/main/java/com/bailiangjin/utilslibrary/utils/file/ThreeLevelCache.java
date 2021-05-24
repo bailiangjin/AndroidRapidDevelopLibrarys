@@ -1,12 +1,11 @@
 package com.bailiangjin.utilslibrary.utils.file;
 
-import androidx.collection.LruCache;
-
 import com.bailiangjin.javabaselib.utils.StringUtils;
 
+import androidx.collection.LruCache;
+
 /**
- *  万能的 三级缓存类
- * Created by bailiangjin on 16/5/30.
+ * 万能的 三级缓存类 Created by bailiangjin on 16/5/30.
  */
 public class ThreeLevelCache<T> {
     private static volatile ThreeLevelCache instance = null;
@@ -38,23 +37,23 @@ public class ThreeLevelCache<T> {
         if (StringUtils.isEmpty(key) || null == t) {
             return;
         }
-        key=t.getClass().getName()+key;
+        key = t.getClass().getName() + key;
         mLruCache.put(key, t);
     }
 
-    public T get(String key,Class<T> clazz) {
+    public T get(String key, Class<T> clazz) {
         if (StringUtils.isEmpty(key)) {
             return null;
         }
-        key=clazz.getName()+key;
+        key = clazz.getName() + key;
         return mLruCache.get(key);
     }
 
-    public void remove(String key,Class<T> clazz) {
+    public void remove(String key, Class<T> clazz) {
         if (StringUtils.isEmpty(key)) {
             return;
         }
-        key=clazz.getName()+key;
+        key = clazz.getName() + key;
         mLruCache.remove(key);
     }
 
